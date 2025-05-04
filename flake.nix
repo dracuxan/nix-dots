@@ -21,19 +21,31 @@
       nixosConfigurations = {
         beru = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix];
+          modules = [ 
+            ./configuration.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.beru = {
+                imports = [ ./home.nix ];
+              };
+            }
+          ];
         };
       };
       hmConf = {
         beru = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "beru";
-          homeDirectory = "/home/beru";
-          configuration = {
-            imports = [
-              ./home.nix
-            ];
-          };
+          pkgs = pkgs;
+          modules = [
+            ./home.nix
+            {
+              home = {
+                username = "beru";
+                homeDirectory = "/home/beru";
+                stateVersion = "24.11";
+              };
+            }
+          ];
         };
       };
     };

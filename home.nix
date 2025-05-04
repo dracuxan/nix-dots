@@ -10,6 +10,14 @@
   ];
 
   home.file = {
+    ".config/starship.toml" = {
+      source = ./starship/starship.toml;
+      recursive = true;
+    };
+    ".config/nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
   };
 
   home.sessionVariables = {

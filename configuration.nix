@@ -118,6 +118,9 @@
     rofi
     flameshot
     xorg.xrandr
+    python312Packages.pip
+    ruff
+    lua
   ];
 
 

@@ -7,6 +7,9 @@
   home.stateVersion = "24.11"; 
 
   home.packages = with pkgs; [ 
+    python312Packages.pip
+    ruff
+    lua
   ];
 
   home.file = {
@@ -16,6 +19,22 @@
     };
     ".config/nvim" = {
       source = ./nvim;
+      recursive = true;
+    };
+    ".config/qtile" = {
+      source = ./qtile;
+      recursive = true;
+    };
+    ".config/alacritty" = {
+      source = ./alacritty;
+      recursive = true;
+    };
+    ".zshrc" = {
+      source = ./zsh/.zshrc;
+      recursive = true;
+    };
+    ".config/fastfetch" = {
+      source = ./fastfetch;
       recursive = true;
     };
   };

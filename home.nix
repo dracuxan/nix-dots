@@ -7,6 +7,7 @@
   home.stateVersion = "24.11"; 
 
   home.packages = with pkgs; [ 
+    emacs
     ruff
     lua
     kdePackages.falkon
@@ -15,14 +16,6 @@
   home.file = {
     ".config/starship.toml" = {
       source = ./starship/starship.toml;
-      recursive = true;
-    };
-    ".config/nvim" = {
-      source = ./nvim;
-      recursive = true;
-    };
-    ".config/qtile" = {
-      source = ./qtile;
       recursive = true;
     };
     ".config/alacritty" = {

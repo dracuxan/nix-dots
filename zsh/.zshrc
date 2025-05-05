@@ -30,15 +30,14 @@ bindkey -r "^[[D"  # Remove Left Arrow
 # Exports and Alias
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
+HISTSIZE=2000
 SAVEHIST=2000
 
 # force zsh to show the complete history
 alias history="history 0"
 
 # ZSH path
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LC_ALL="en_US.UTF-8"
 
 # Some more ls aliases
 alias ll='ls -la'

@@ -85,6 +85,13 @@
 
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
+
+  programs.nix-ld.libraries = with pkgs; [
+    ruff
+    lua
+  ];
+
 
   users.defaultUserShell = pkgs.zsh;
 

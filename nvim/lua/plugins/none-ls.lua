@@ -9,12 +9,9 @@ require("mason-null-ls").setup({
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
 		"shfmt", -- Shell formatter
-		"checkmake", -- linter for Makefiles
-		"ruff", -- Python linter and formatter
 		"golines",
 		"gofumpt",
 		"goimports-reviser",
-		"gopls",
 	},
 	automatic_installation = true,
 })
@@ -41,7 +38,7 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format({ async = false })
+					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end

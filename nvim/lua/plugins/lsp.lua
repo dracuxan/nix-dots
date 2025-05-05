@@ -155,6 +155,15 @@ return {
 						vim.lsp.buf.format({ bufnr = bufnr })
 					end,
 				})
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					pattern = "*.go",
+					callback = function()
+						vim.lsp.buf.code_action({
+							context = { only = { "source.organizeImports" } },
+							apply = true,
+						})
+					end,
+				})
 				vim.diagnostic.config({
 					update_in_insert = true, -- Show errors while typing
 					virtual_text = true, -- Show inline errors
@@ -194,14 +203,15 @@ return {
 			gopls = {
 				on_attach = on_attach,
 				capabilities = capabilities,
+				cmd = { "gopls" },
+				filetypes = { "go", "gomod", "gowork", "gotmpl" },
 				settings = {
 					gopls = {
+						completeUnimported = true,
+						usePlaceholders = true,
 						analyses = {
 							unusedparams = true,
-							unusedimport = true,
 						},
-						staticcheck = true,
-						gofumpt = true,
 					},
 				},
 			},

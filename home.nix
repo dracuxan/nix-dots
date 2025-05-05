@@ -11,6 +11,7 @@
     ruff
     lua
     kdePackages.falkon
+    htop
   ];
 
   home.file = {

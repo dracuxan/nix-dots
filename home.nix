@@ -7,9 +7,9 @@
   home.stateVersion = "24.11"; 
 
   home.packages = with pkgs; [ 
-    python312Packages.pip
     ruff
     lua
+    kdePackages.falkon
   ];
 
   home.file = {

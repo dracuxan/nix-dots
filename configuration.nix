@@ -83,7 +83,7 @@
     ];
   };
 
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.zsh.enable = true;
 
   users.defaultUserShell = pkgs.zsh;
@@ -118,9 +118,6 @@
     rofi
     flameshot
     xorg.xrandr
-    python312Packages.pip
-    ruff
-    lua
   ];
 
 

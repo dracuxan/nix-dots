@@ -21,9 +21,9 @@ local sources = {
 	formatting.stylua,
 	formatting.shfmt.with({ args = { "-i", "4" } }),
 	formatting.terraform_fmt,
-	formatting.gofumpt,
-	formatting.goimports_reviser,
-	formatting.golines,
+	-- formatting.gofumpt,
+	-- formatting.goimports_reviser,
+	-- formatting.golines,
 	-- require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
 	-- require("none-ls.formatting.ruff_format"),
 }

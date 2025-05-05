@@ -11,6 +11,11 @@ vim.opt.rtp:prepend(lazypath)
 
 local custom_plugins = {
 	{
+		"sphamba/smear-cursor.nvim",
+		opts = {},
+	},
+
+	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = function()

@@ -15,22 +15,6 @@
   ];
 
   home.file = {
-    ".config/starship.toml" = {
-      source = ./starship/starship.toml;
-      recursive = true;
-    };
-    ".config/alacritty" = {
-      source = ./alacritty;
-      recursive = true;
-    };
-    ".zshrc" = {
-      source = ./zsh/.zshrc;
-      recursive = true;
-    };
-    ".config/fastfetch" = {
-      source = ./fastfetch;
-      recursive = true;
-    };
   };
 
   home.sessionVariables = {

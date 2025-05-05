@@ -103,6 +103,7 @@
     wget
     neovim
     alacritty
+    kitty
     starship
     fastfetch
     git

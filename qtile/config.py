@@ -4,7 +4,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "kitty"
 
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -54,6 +54,7 @@ keys = [
     ),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "q", lazy.spawn("poweroff"), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn("falkon"), desc="staart Firefox"),
     Key([mod], "s", lazy.spawn("flameshot gui"), desc="take scrennshot"),
@@ -93,13 +94,20 @@ for i in groups:
 layout_theme = {
     "border_width": 3,
     "margin": 30,
-    "border_focus": "FFFFFF",
-    "border_normal": "CCCCCC",
+    "border_focus": "#82D9C2",
+    "border_normal": "#A0A0A0",
+}
+
+max_layout_theme = {
+    "border_width": 5,
+    "margin": 25,
+    "border_focus": "#82D9C2",
+    "border_normal": "#A0A0A0",
 }
 
 layouts = [
     layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
+    layout.Max(**max_layout_theme),
 ]
 
 widget_defaults = dict(
@@ -118,7 +126,7 @@ screens = [
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
+                        "launch": ("#82D9C2", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),

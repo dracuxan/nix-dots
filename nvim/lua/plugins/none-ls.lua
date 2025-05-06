@@ -9,9 +9,6 @@ require("mason-null-ls").setup({
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
 		"shfmt", -- Shell formatter
-		"golines",
-		"gofumpt",
-		"goimports-reviser",
 	},
 	automatic_installation = true,
 })

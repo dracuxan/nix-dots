@@ -69,6 +69,10 @@ alias py='python3'
 alias nuke='nuclei'
 alias ff='firefox'
 
+# Path for custom scripts
+export PATH="$HOME/bin:$PATH"
+alias tm=start_tmux.sh
+
 # Startup Commands
 alias neo='clear; fastfetch'
 eval "$(starship init zsh)"

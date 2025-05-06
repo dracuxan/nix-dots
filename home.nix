@@ -12,6 +12,7 @@
     lua
     kdePackages.falkon
     htop
+    tmux
   ];
 
   home.file = {

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e # Exit on error
 
@@ -34,6 +34,8 @@ stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/qtile" qtile
 echo "[+] Stowing legacy dotfiles into ~..."
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config" starship
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME" zsh
+stow --adopt -d "$DOTFILES_DIR" -t "$HOME" tmux
+stow --adopt -d "$DOTFILES_DIR" -t "$HOME/bin" scripts
 
 echo "-----------------------------------------"
 echo "       Setup Complete — Reboot Now       "

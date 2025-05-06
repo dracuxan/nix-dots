@@ -20,12 +20,6 @@ local sources = {
 	formatting.prettier.with({ filetypes = { "html", "json", "yaml", "markdown", "graphql" } }),
 	formatting.stylua,
 	formatting.shfmt.with({ args = { "-i", "4" } }),
-	formatting.terraform_fmt,
-	-- formatting.gofumpt,
-	-- formatting.goimports_reviser,
-	-- formatting.golines,
-	-- require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
-	-- require("none-ls.formatting.ruff_format"),
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

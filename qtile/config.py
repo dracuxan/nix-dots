@@ -43,6 +43,12 @@ keys = [
     Key(
         [mod],
         "f",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen on the focused window",
+    ),
+    Key(
+        [mod, "shift"],
+        "b",
         lazy.hide_show_bar(),
         desc="Toggle fullscreen on the focused window",
     ),

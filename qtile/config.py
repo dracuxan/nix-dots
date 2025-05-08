@@ -98,15 +98,15 @@ for i in groups:
     )
 
 layout_theme = {
-    "border_width": 3,
+    "border_width": 2,
     "margin": 30,
     "border_focus": "#82D9C2",
     "border_normal": "#A0A0A0",
 }
 
 max_layout_theme = {
-    "border_width": 5,
-    "margin": 25,
+    "border_width": 2,
+    "margin": 15,
     "border_focus": "#82D9C2",
     "border_normal": "#A0A0A0",
 }

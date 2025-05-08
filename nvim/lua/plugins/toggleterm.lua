@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 8,
+	size = 10,
 	open_mapping = [[<M-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -13,7 +13,7 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-	direction = "horizontal",
+	direction = "vertical",
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
@@ -64,27 +64,32 @@ function _RUN_SCRIPT()
 end
 
 function _MAKE_RUN()
-	local make = Terminal:new({ cmd = "make run", hidden = true, close_on_exit = false })
+	local make =
+		Terminal:new({ cmd = "make run", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_TEST()
-	local make = Terminal:new({ cmd = "make test", hidden = true, close_on_exit = false })
+	local make =
+		Terminal:new({ cmd = "make test", direction = "horizontal", size = 10, hidden = true, close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_BENCH()
-	local make = Terminal:new({ cmd = "make bench", hidden = true, close_on_exit = false })
+	local make =
+		Terminal:new({ cmd = "make bench", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_BUILD()
-	local make = Terminal:new({ cmd = "make build", hidden = true, close_on_exit = false })
+	local make =
+		Terminal:new({ cmd = "make build", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_CLEAN()
-	local make = Terminal:new({ cmd = "make clean", hidden = true, close_on_exit = false })
+	local make =
+		Terminal:new({ cmd = "make clean", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 

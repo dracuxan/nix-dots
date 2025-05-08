@@ -71,7 +71,8 @@ alias ff='firefox'
 
 # Path for custom scripts
 export PATH="$HOME/bin:$PATH"
-alias tm=start_tmux.sh
+alias tm='start_tmux.sh'
+alias cls='clear'
 
 # Startup Commands
 alias neo='clear; fastfetch'

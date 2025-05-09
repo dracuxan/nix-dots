@@ -1,7 +1,6 @@
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = "kitty"
@@ -77,7 +76,7 @@ for vt in range(1, 8):
     )
 
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(f"{i + 1}", label="") for i in range(5)]
 
 for i in groups:
     keys.extend(
@@ -86,34 +85,46 @@ for i in groups:
                 [mod],
                 i.name,
                 lazy.group[i.name].toscreen(),
-                desc=f"Switch to group {i.name}",
+                desc="Switch to group {}".format(i.name),
             ),
             Key(
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc=f"Switch to & move focused window to group {i.name}",
+                desc="Switch to & move focused window to group {}".format(i.name),
             ),
         ]
     )
 
-layout_theme = {
-    "border_width": 2,
-    "margin": 30,
-    "border_focus": "#82D9C2",
-    "border_normal": "#A0A0A0",
-}
-
-max_layout_theme = {
-    "border_width": 2,
-    "margin": 15,
-    "border_focus": "#82D9C2",
-    "border_normal": "#A0A0A0",
+lay_config = {
+    "border_width": 0,
+    "margin": 9,
+    "border_focus": "3b4252",
+    "border_normal": "3b4252",
+    "font": "FiraCode Nerd Font",
+    "grow_amount": 2,
 }
 
 layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.Max(**max_layout_theme),
+    # layout.MonadWide(**lay_config),
+    layout.Bsp(**lay_config, fair=False, border_on_single=True),
+    layout.Columns(
+        **lay_config,
+        border_on_single=True,
+        num_columns=2,
+        split=False,
+    ),
+    # Plasma(lay_config, border_normal_fixed='#3b4252', border_focus_fixed='#3b4252', border_width_single=3),
+    # layout.RatioTile(**lay_config),
+    # layout.VerticalTile(**lay_config),
+    # layout.Matrix(**lay_config, columns=3),
+    # layout.Zoomy(**lay_config),
+    # layout.Slice(**lay_config, width=1920, fallback=layout.TreeTab(), match=Match(wm_class="joplin"), side="right"),
+    # layout.MonadTall(**lay_config),
+    # layout.Tile(shift_windows=True, **lay_config),
+    # layout.Stack(num_stacks=2, **lay_config),
+    layout.Floating(**lay_config),
+    layout.Max(**lay_config),
 ]
 
 widget_defaults = dict(
@@ -127,19 +138,88 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#82D9C2", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.GroupBox(
+                    font="JetBrainsMono Nerd Font",
+                    fontsize=24,
+                    borderwidth=3,
+                    highlight_method="block",
+                    active="#A0A0A0",
+                    block_highlight_text_color="#82D9C2",
+                    highlight_color="#353446",
+                    inactive="#282738",
+                    foreground="#4B427E",
+                    background="#353446",
+                    this_current_screen_border="#353446",
+                    this_screen_border="#353446",
+                    other_current_screen_border="#353446",
+                    other_screen_border="#353446",
+                    urgent_border="#353446",
+                    rounded=True,
+                    disable_drag=True,
                 ),
-                widget.Systray(),
-                widget.Clock(format="%d-%m-%Y %a %I:%M %p"),
+                widget.Spacer(
+                    length=8,
+                    background="#353446",
+                ),
+                widget.WindowName(
+                    background="#353446",
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                    empty_group_string="Desktop",
+                    max_chars=130,
+                    foreground="#82D9C2",
+                ),
+                widget.Systray(
+                    background="#282738",
+                    fontsize=2,
+                ),
+                widget.TextBox(
+                    text=" ",
+                    background="#282738",
+                ),
+                widget.Spacer(
+                    length=8,
+                    background="#353446",
+                ),
+                widget.Memory(
+                    background="#353446",
+                    format="RAM:{MemUsed: .0f}{mm}",
+                    foreground="#82D9C2",
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                    update_interval=5,
+                ),
+                widget.Spacer(
+                    length=8,
+                    background="#353446",
+                ),
+                widget.Spacer(
+                    length=8,
+                    background="#282738",
+                ),
+                widget.TextBox(
+                    text=" ",
+                    font="Font Awesome 6 Free Solid",
+                    fontsize=13,
+                    background="#282738",
+                    foreground="#82D9C2",
+                ),
+                widget.Clock(
+                    format="%I:%M %p",
+                    background="#282738",
+                    foreground="#82D9C2",
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                ),
+                widget.Spacer(
+                    length=18,
+                    background="#282738",
+                ),
             ],
-            24,
+            30,
+            border_color="#282738",
+            border_width=[0, 0, 0, 0],
+            margin=[6, 9, 6, 9],
         ),
     ),
 ]

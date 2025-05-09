@@ -7,11 +7,21 @@
   home.stateVersion = "24.11"; 
 
   home.packages = with pkgs; [ 
-    emacs
-    ruff
-    lua
+    neovim
+    alacritty
+    kitty
+    starship
+    fastfetch
+    lazygit
+    gh
+    stow
+    feh
+    btop
+    xwallpaper
+    rofi
+    flameshot
+    xorg.xrandr
     kdePackages.falkon
-    htop
     tmux
   ];
 

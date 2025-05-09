@@ -25,13 +25,6 @@ local custom_plugins = {
 	},
 
 	{
-		"nvzone/typr",
-		cmd = { "Typr", "TyprStats" },
-		dependencies = "nvzone/volt",
-		opts = {},
-	},
-
-	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
 		dependencies = {

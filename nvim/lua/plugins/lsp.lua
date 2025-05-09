@@ -123,38 +123,37 @@ return {
 					})
 				end
 
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({
+						group = augroup,
+						buffer = bufnr,
+					})
+
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({ bufnr = bufnr })
+						end,
+					})
+
+					vim.diagnostic.config({
+						update_in_insert = true, -- Show errors while typing
+						virtual_text = true, -- Show inline errors
+						signs = true, -- Show signs in the gutter
+						underline = true, -- Underline errors
+					})
+				end
+
 				-- The following code creates a keymap to toggle inlay hints in your
 				-- code, if the language server you are using supports them
 				--
 				-- This may be unwanted, since they displace some of your code
-				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-					map("<leader>th", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-					end, "[T]oggle Inlay [H]ints")
-				end
-			end,
-		})
-
-		-- LSP servers and clients are able to communicate to each other what features they support.
-		--  By default, Neovim doesn't support everything that is in the LSP specification.
-		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-		--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-		local on_attach = function(client, bufnr)
-			if client.supports_method("textDocument/formatting") then
-				vim.api.nvim_clear_autocmds({
-					group = augroup,
-					buffer = bufnr,
-				})
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
-					callback = function()
-						vim.lsp.buf.format({ bufnr = bufnr })
-					end,
-				})
+				-- if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+				-- 	map("<leader>th", function()
+				-- 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+				-- 	end, "[T]oggle Inlay [H]ints")
+				-- end
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					pattern = "*.go",
 					callback = function()
@@ -164,26 +163,25 @@ return {
 						})
 					end,
 				})
-				vim.diagnostic.config({
-					update_in_insert = true, -- Show errors while typing
-					virtual_text = true, -- Show inline errors
-					signs = true, -- Show signs in the gutter
-					underline = true, -- Underline errors
-				})
-			end
-		end
+			end,
+		})
+
+		-- LSP servers and clients are able to communicate to each other what features they support.
+		--  By default, Neovim doesn't support everything that is in the LSP specification.
+		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
+		--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		local servers = {
 
 			clangd = {
-				on_attach = on_attach,
 				capabilities = capabilities,
 				cmd = { "clangd" },
 				filetypes = { "c", "cpp", "objc", "objcpp" },
 			},
 
 			gopls = {
-				on_attach = on_attach,
 				capabilities = capabilities,
 				cmd = { "gopls" },
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -198,12 +196,10 @@ return {
 				},
 			},
 			pyright = {
-				on_attach = on_attach,
 				capabilities = capabilities,
 			},
 
 			ts_ls = {
-				on_attach = on_attach,
 				capabilities = capabilities,
 			}, -- tsserver is deprecated
 
@@ -211,7 +207,6 @@ return {
 			cssls = {},
 
 			zls = {
-				on_attach = on_attach,
 				capabilities = capabilities,
 			},
 
@@ -229,7 +224,7 @@ return {
 								unpack(vim.api.nvim_get_runtime_file("", true)),
 							},
 						},
-						diagnostics = { disable = { "missing-fields" } },
+						diagnostics = { disable = { "missing-fields" }, globals = { "vim" } },
 						format = {
 							enable = false,
 						},

@@ -54,7 +54,7 @@ keys = [
     Key(
         [mod],
         "t",
-        lazy.window.toggle_floating(),
+        lazy.window.toggle_bsp(),
         desc="Toggle floating on the focused window",
     ),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
@@ -99,8 +99,8 @@ for i in groups:
 lay_config = {
     "border_width": 0,
     "margin": 9,
-    "border_focus": "3b4252",
-    "border_normal": "3b4252",
+    "border_focus": "",
+    "border_normal": "",
     "font": "FiraCode Nerd Font",
     "grow_amount": 2,
 }
@@ -166,6 +166,17 @@ screens = [
                     font="JetBrainsMono Nerd Font Bold",
                     fontsize=13,
                     empty_group_string="Desktop",
+                    max_chars=130,
+                    foreground="#82D9C2",
+                ),
+                widget.Systray(
+                    background="#282738",
+                    fontsize=2,
+                ),
+                widget.Prompt(
+                    background="#353446",
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
                     max_chars=130,
                     foreground="#82D9C2",
                 ),

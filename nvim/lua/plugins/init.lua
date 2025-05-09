@@ -11,11 +11,6 @@ vim.opt.rtp:prepend(lazypath)
 
 local custom_plugins = {
 	{
-		"sphamba/smear-cursor.nvim",
-		opts = {},
-	},
-
-	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = function()
@@ -142,7 +137,7 @@ local custom_plugins = {
 				end,
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			require("plugins.telescope") -- Loads the Telescope configuration

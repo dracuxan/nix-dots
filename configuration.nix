@@ -22,15 +22,24 @@
     enable = true;
     windowManager.qtile.enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Wallpaper/anime_skull.png
+      xwallpaper --zoom ~/Wallpaper/joyboy.png
       xset r rate 300 30 &
     '';
   };
   
   services.picom = {
     enable = true;
+    backend = "glx";  # Required for rounded corners and blur
+    settings = {
+      corner-radius = 10;  # Adjust this value as needed
+      round-borders = 1;   # Optional: enables border rounding if supported
+      shadow = true;
+      shadow-radius = 12;
+      blur-method = "dual_kawase";
+      blur-strength = 5;
+    };
   };
-  
+
   users.users.beru = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.

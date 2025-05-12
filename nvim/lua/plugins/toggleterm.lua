@@ -101,9 +101,9 @@ end
 
 -- Set keymaps
 vim.keymap.set("n", "<M-m>sr", _RUN_SCRIPT, { noremap = true, silent = true, desc = "use run script" })
-vim.keymap.set("n", "<M-m>mr", _MAKE_RUN, { noremap = true, silent = true, desc = "make run" })
-vim.keymap.set("n", "<M-m>mt", _MAKE_TEST, { noremap = true, silent = true, desc = "make test" })
-vim.keymap.set("n", "<M-m>mb", _MAKE_BUILD, { noremap = true, silent = true, desc = "make build" })
-vim.keymap.set("n", "<M-m>mB", _MAKE_BENCH, { noremap = true, silent = true, desc = "make bench" })
-vim.keymap.set("n", "<M-m>mc", _MAKE_CLEAN, { noremap = true, silent = true, desc = "make clean" })
+vim.keymap.set("n", "<M-m>r", _MAKE_RUN, { noremap = true, silent = true, desc = "make run" })
+vim.keymap.set("n", "<M-m>t", _MAKE_TEST, { noremap = true, silent = true, desc = "make test" })
+vim.keymap.set("n", "<M-m>b", _MAKE_BUILD, { noremap = true, silent = true, desc = "make build" })
+vim.keymap.set("n", "<M-m>B", _MAKE_BENCH, { noremap = true, silent = true, desc = "make bench" })
+vim.keymap.set("n", "<M-m>c", _MAKE_CLEAN, { noremap = true, silent = true, desc = "make clean" })
 vim.keymap.set("n", "<M-m>l", _LAZYGIT_TOGGLE, { noremap = true, silent = true, desc = "lazygit" })

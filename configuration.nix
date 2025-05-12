@@ -35,8 +35,6 @@
       round-borders = 1;   # Optional: enables border rounding if supported
       shadow = true;
       shadow-radius = 12;
-      blur-method = "dual_kawase";
-      blur-strength = 5;
     };
   };
 

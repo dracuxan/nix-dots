@@ -14,8 +14,13 @@ style = "Bold"
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-style = "Regualar"
+style = "Regular"
 
 [font.offset]
 x = 0
 y = 1
+
+[colors.primary]
+background = "#181818"
+foreground = "#d8d8d8"
+dim_foreground = "#181818"

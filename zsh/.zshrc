@@ -72,9 +72,9 @@ alias ff='firefox'
 # Path for custom scripts
 export PATH="$HOME/bin:$PATH"
 alias tm='start_tmux.sh'
-alias cls='clear'
+alias neo='clear'
 
 # Startup Commands
-alias neo='clear; fastfetch'
+alias cls='clear; fastfetch'
 eval "$(starship init zsh)"
-neo
+cls

@@ -64,3 +64,8 @@ nix-dots/
 ├── README.md
 └── result -> symlink to current home-manager generation
 ```
+
+## Screenshots
+
+![kitty](./Screenshots/kitty.png)
+![neovim+tmux](./Screenshots/rice_v_f.png)

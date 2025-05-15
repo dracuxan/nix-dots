@@ -22,6 +22,7 @@
     xorg.xrandr
     tmux
     librewolf
+    dysk
   ];
 
   home.file = {

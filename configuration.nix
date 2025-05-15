@@ -22,7 +22,7 @@
     enable = true;
     windowManager.qtile.enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Wallpaper/orbit.png
+      xwallpaper --zoom ~/Wallpaper/war-in-space.png
       xset r rate 300 30 &
     '';
   };

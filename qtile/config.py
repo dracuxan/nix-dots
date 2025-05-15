@@ -51,17 +51,11 @@ keys = [
         lazy.hide_show_bar(),
         desc="Toggle fullscreen on the focused window",
     ),
-    Key(
-        [mod],
-        "t",
-        lazy.window.toggle_bsp(),
-        desc="Toggle floating on the focused window",
-    ),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"], "q", lazy.spawn("poweroff"), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "b", lazy.spawn("falkon"), desc="staart Firefox"),
+    Key([mod], "b", lazy.spawn("librewolf"), desc="staart Firefox"),
     Key([mod], "s", lazy.spawn("flameshot gui"), desc="take scrennshot"),
 ]
 
@@ -97,34 +91,18 @@ for i in groups:
     )
 
 lay_config = {
-    "border_width": 0,
+    "border_width": 1,
     "margin": 9,
-    "border_focus": "",
-    "border_normal": "",
+    "border_focus": "#d8d8d8",
+    "border_normal": "#d8d8d8",
     "font": "FiraCode Nerd Font",
     "grow_amount": 2,
 }
 
 layouts = [
-    # layout.MonadWide(**lay_config),
     layout.Bsp(**lay_config, fair=False, border_on_single=True),
-    layout.Columns(
-        **lay_config,
-        border_on_single=True,
-        num_columns=2,
-        split=False,
-    ),
-    # Plasma(lay_config, border_normal_fixed='#3b4252', border_focus_fixed='#3b4252', border_width_single=3),
-    # layout.RatioTile(**lay_config),
-    # layout.VerticalTile(**lay_config),
-    # layout.Matrix(**lay_config, columns=3),
-    # layout.Zoomy(**lay_config),
-    # layout.Slice(**lay_config, width=1920, fallback=layout.TreeTab(), match=Match(wm_class="joplin"), side="right"),
-    # layout.MonadTall(**lay_config),
-    # layout.Tile(shift_windows=True, **lay_config),
-    # layout.Stack(num_stacks=2, **lay_config),
-    layout.Floating(**lay_config),
-    layout.Max(**lay_config),
+    layout.Max(),
+    # layout.Floating(),
 ]
 
 widget_defaults = dict(
@@ -136,7 +114,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 widget.GroupBox(
                     font="JetBrainsMono Nerd Font",
@@ -144,93 +122,94 @@ screens = [
                     borderwidth=3,
                     highlight_method="block",
                     active="#A0A0A0",
-                    block_highlight_text_color="#82D9C2",
-                    highlight_color="#353446",
-                    inactive="#282738",
-                    foreground="#4B427E",
-                    background="#353446",
-                    this_current_screen_border="#353446",
-                    this_screen_border="#353446",
-                    other_current_screen_border="#353446",
-                    other_screen_border="#353446",
-                    urgent_border="#353446",
+                    block_highlight_text_color="#d8d8d8",
+                    highlight_color="#1D1E1C",
+                    inactive="#282824",
+                    foreground="#1D1E1C",
+                    background="#1D1E1C",
+                    this_current_screen_border="#1D1E1C",
+                    this_screen_border="#1D1E1C",
+                    other_current_screen_border="#1D1E1C",
+                    other_screen_border="#1D1E1C",
+                    urgent_border="#1D1E1C",
                     rounded=True,
                     disable_drag=True,
                 ),
                 widget.Spacer(
                     length=8,
-                    background="#353446",
+                    background="#1D1E1C",
                 ),
                 widget.WindowName(
-                    background="#353446",
+                    background="#1D1E1C",
                     font="JetBrainsMono Nerd Font Bold",
                     fontsize=13,
                     empty_group_string="Desktop",
                     max_chars=130,
-                    foreground="#82D9C2",
+                    foreground="#d8d8d8",
                 ),
                 widget.Systray(
-                    background="#282738",
+                    background="#282824",
                     fontsize=2,
                 ),
                 widget.Prompt(
-                    background="#353446",
+                    background="#1D1E1C",
                     font="JetBrainsMono Nerd Font Bold",
                     fontsize=13,
                     max_chars=130,
-                    foreground="#82D9C2",
+                    foreground="#d8d8d8",
                 ),
                 widget.Systray(
-                    background="#282738",
+                    background="#282824",
                     fontsize=2,
-                ),
-                widget.TextBox(
-                    text=" ",
-                    background="#282738",
                 ),
                 widget.Spacer(
                     length=8,
-                    background="#353446",
+                    background="#282824",
+                ),
+                widget.TextBox(
+                    text=" ",
+                    background="#282824",
                 ),
                 widget.Memory(
-                    background="#353446",
                     format="RAM:{MemUsed: .0f}{mm}",
-                    foreground="#82D9C2",
+                    background="#282824",
+                    foreground="#d8d8d8",
                     font="JetBrainsMono Nerd Font Bold",
                     fontsize=13,
                     update_interval=5,
                 ),
                 widget.Spacer(
                     length=8,
-                    background="#353446",
+                    background="#282824",
+                    # d8d8d8
                 ),
                 widget.Spacer(
                     length=8,
-                    background="#282738",
+                    background="#282824",
                 ),
                 widget.TextBox(
                     text=" ",
                     font="Font Awesome 6 Free Solid",
                     fontsize=13,
-                    background="#282738",
-                    foreground="#82D9C2",
+                    background="#282824",
+                    foreground="#d8d8d8",
                 ),
                 widget.Clock(
                     format="%I:%M %p",
-                    background="#282738",
-                    foreground="#82D9C2",
+                    background="#282824",
+                    foreground="#d8d8d8",
                     font="JetBrainsMono Nerd Font Bold",
                     fontsize=13,
                 ),
                 widget.Spacer(
-                    length=18,
-                    background="#282738",
+                    length=16,
+                    background="#282824",
                 ),
             ],
             30,
-            border_color="#282738",
+            border_color="#282824",
             border_width=[0, 0, 0, 0],
-            margin=[6, 9, 6, 9],
+            # margin=[6, 9, 6, 9],
         ),
     ),
 ]

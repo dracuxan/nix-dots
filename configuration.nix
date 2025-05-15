@@ -22,7 +22,7 @@
     enable = true;
     windowManager.qtile.enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Wallpaper/joyboy.png
+      xwallpaper --zoom ~/Wallpaper/orbit.png
       xset r rate 300 30 &
     '';
   };
@@ -30,12 +30,6 @@
   services.picom = {
     enable = true;
     backend = "glx";  # Required for rounded corners and blur
-    settings = {
-      corner-radius = 10;  # Adjust this value as needed
-      round-borders = 1;   # Optional: enables border rounding if supported
-      shadow = true;
-      shadow-radius = 12;
-    };
   };
 
   users.users.beru = {

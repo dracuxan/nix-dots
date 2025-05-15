@@ -9,7 +9,6 @@
   home.packages = with pkgs; [ 
     neovim
     alacritty
-    kitty
     starship
     fastfetch
     lazygit
@@ -21,8 +20,8 @@
     rofi
     flameshot
     xorg.xrandr
-    kdePackages.falkon
     tmux
+    librewolf
   ];
 
   home.file = {

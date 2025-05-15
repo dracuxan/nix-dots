@@ -77,4 +77,3 @@ alias neo='clear'
 # Startup Commands
 alias cls='clear; fastfetch'
 eval "$(starship init zsh)"
-cls

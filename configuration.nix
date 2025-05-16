@@ -22,9 +22,13 @@
     enable = true;
     windowManager.qtile.enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Wallpaper/war-in-space.png
+      xwallpaper --zoom ~/Wallpaper/iuh3jkasndjans.jpg
       xset r rate 300 30 &
     '';
+  };
+
+  services.mongodb = {
+    enable = true;
   };
   
   services.picom = {
@@ -81,5 +85,6 @@
     package = pkgs.nixVersions.stable;
     extraOptions = "experimental-features = nix-command flakes";
   };
-}
 
+  nixpkgs.config.allowUnfree = true; 
+}

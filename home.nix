@@ -23,6 +23,7 @@
     tmux
     librewolf
     dysk
+    tokei
   ];
 
   home.file = {

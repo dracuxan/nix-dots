@@ -4,7 +4,13 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 10,
+	size = function(term)
+		if term.direction == "horizontal" then
+			return 10
+		elseif term.direction == "vertical" then
+			return 50
+		end
+	end,
 	open_mapping = [[<M-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -64,37 +70,32 @@ function _RUN_SCRIPT()
 end
 
 function _MAKE_RUN()
-	local make =
-		Terminal:new({ cmd = "make run", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
+	local make = Terminal:new({ cmd = "make run", hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_TEST()
-	local make =
-		Terminal:new({ cmd = "make test", direction = "horizontal", size = 10, hidden = true, close_on_exit = false })
+	local make = Terminal:new({ cmd = "make test", direction = "horizontal", hidden = true, close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_BENCH()
-	local make =
-		Terminal:new({ cmd = "make bench", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
+	local make = Terminal:new({ cmd = "make bench", hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_BUILD()
-	local make =
-		Terminal:new({ cmd = "make build", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
+	local make = Terminal:new({ cmd = "make build", hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 
 function _MAKE_CLEAN()
-	local make =
-		Terminal:new({ cmd = "make clean", size = 10, hidden = true, direction = "horizontal", close_on_exit = false })
+	local make = Terminal:new({ cmd = "make clean", hidden = true, direction = "horizontal", close_on_exit = false })
 	make:toggle()
 end
 
 function _LAZYGIT_TOGGLE()
-	local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float", size = 20 })
+	local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
 	lazygit:toggle()
 end

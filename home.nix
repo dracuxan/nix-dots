@@ -24,6 +24,8 @@
     librewolf
     dysk
     tokei
+    scrcpy
+    android-tools
   ];
 
   home.file = {

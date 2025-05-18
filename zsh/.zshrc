@@ -73,6 +73,7 @@ alias ff='firefox'
 export PATH="$HOME/bin:$PATH"
 alias tm='start_tmux.sh'
 alias neo='clear'
+alias builder='cd ~/nix-dots; sudo make build; cd ~/done;'
 
 # Startup Commands
 alias cls='clear; fastfetch'

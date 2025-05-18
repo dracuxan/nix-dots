@@ -17,7 +17,7 @@ return {
 
 		-- Useful status updates for LSP.
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ "j-hui/fidget.nvim", opts = {} },
+		{ "j-hui/fidget.nvim",       opts = {} },
 
 		-- Allows extra capabilities provided by nvim-cmp
 		"hrsh7th/cmp-nvim-lsp",
@@ -148,8 +148,8 @@ return {
 					vim.diagnostic.config({
 						update_in_insert = true, -- Show errors while typing
 						virtual_text = true, -- Show inline errors
-						signs = true, -- Show signs in the gutter
-						underline = true, -- Underline errors
+						signs = true,      -- Show signs in the gutter
+						underline = true,  -- Underline errors
 					})
 				end
 
@@ -165,7 +165,7 @@ return {
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					pattern = "*.go",
 					callback = function()
-						local params = vim.lsp.util.make_range_params()
+						local params = vim.lsp.util.make_range_params(0, "utf-16")
 						params.context = { only = { "source.organizeImports" } }
 						local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
 						for cid, res in pairs(result or {}) do

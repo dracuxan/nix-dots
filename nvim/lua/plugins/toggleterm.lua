@@ -8,7 +8,7 @@ toggleterm.setup({
 		if term.direction == "horizontal" then
 			return 10
 		else
-			return 50
+			return 60
 		end
 	end,
 	open_mapping = [[<M-\>]],

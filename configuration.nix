@@ -70,6 +70,10 @@
     nodejs
     ruff
     lua
+    rustc
+    rustup
+    rustfmt
+    cargo
   ];
 
 

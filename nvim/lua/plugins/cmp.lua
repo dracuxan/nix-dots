@@ -29,6 +29,9 @@ local kind_icons = {
 	Event = "",
 	Operator = "󰆕",
 	TypeParameter = "󰊄",
+	nvim_lsp = "λ",
+	vsnip = "⋗",
+	buffer = "Ω",
 }
 
 cmp.setup({
@@ -79,9 +82,10 @@ cmp.setup({
 		format = function(entry, vim_item)
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
+				nvim_lsp = "λ",
+				vsnip = "⋗",
+				buffer = "Ω",
 				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
 				path = "[Path]",
 			})[entry.source.name]
 			return vim_item

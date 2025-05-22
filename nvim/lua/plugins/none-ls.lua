@@ -15,6 +15,8 @@ require("mason-null-ls").setup({
 		"gofumpt",
 		"goimports-reviser",
 		"gopls",
+		"rust-analyzer",
+		"codelldb",
 	},
 	automatic_installation = true,
 })

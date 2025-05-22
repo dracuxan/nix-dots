@@ -26,6 +26,7 @@
     tokei
     scrcpy
     android-tools
+    gotools
   ];
 
   home.file = {

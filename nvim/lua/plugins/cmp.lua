@@ -29,9 +29,6 @@ local kind_icons = {
 	Event = "",
 	Operator = "󰆕",
 	TypeParameter = "󰊄",
-	nvim_lsp = "λ",
-	vsnip = "⋗",
-	buffer = "Ω",
 }
 
 cmp.setup({

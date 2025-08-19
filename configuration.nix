@@ -20,6 +20,7 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
 
 
   # Set your time zone.
@@ -88,9 +89,16 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
-      clang
     ];
   };
+
+  programs.nix-ld.libraries = with pkgs; [
+    ruff
+    lua
+    nodejs
+    clang
+    gcc
+  ];
 
   users.defaultUserShell = pkgs.zsh;
 
@@ -112,11 +120,7 @@
     autorandr
     go
     zig
-    clang-tools
-    gcc
-    nodejs_24
     tmux
-    lua
     unzip
     gh
     python314

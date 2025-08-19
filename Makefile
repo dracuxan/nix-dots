@@ -2,6 +2,9 @@
 
 all: build install
 
+clean:
+	nix-collect-garbage --delete-older-than 10d
+
 build:
 	@nixos-rebuild switch --flake .#dracuxan
 

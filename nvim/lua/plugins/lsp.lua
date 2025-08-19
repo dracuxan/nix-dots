@@ -19,7 +19,7 @@ return {
 
 		-- Useful status updates for LSP.
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ "j-hui/fidget.nvim", opts = {} },
+		{ "j-hui/fidget.nvim",       opts = {} },
 
 		-- Allows extra capabilities provided by nvim-cmp
 		"hrsh7th/cmp-nvim-lsp",
@@ -150,8 +150,8 @@ return {
 					vim.diagnostic.config({
 						update_in_insert = true, -- Show errors while typing
 						virtual_text = true, -- Show inline errors
-						signs = true, -- Show signs in the gutter
-						underline = true, -- Underline errors
+						signs = true,      -- Show signs in the gutter
+						underline = true,  -- Underline errors
 					})
 				end
 
@@ -195,8 +195,7 @@ return {
 
 			clangd = {
 				capabilities = capabilities,
-				cmd = { "clangd" },
-				filetypes = { "c", "cpp", "objc", "objcpp" },
+				filetypes = { "c", "cpp", "objc", "objcpp", "h" },
 			},
 
 			bashls = {
@@ -220,21 +219,6 @@ return {
 			pyright = {
 				capabilities = capabilities,
 			},
-
-			ts_ls = {
-				capabilities = capabilities,
-				init_options = {
-					preferences = {
-						disableSuggestions = true,
-					},
-				},
-				commands = {
-					OrganizeImports = {
-						organize_imports,
-						description = "Organize Imports",
-					},
-				},
-			}, -- tsserver is deprecated
 
 			rust_analyzer = {
 				capabilities = capabilities,

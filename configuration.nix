@@ -29,8 +29,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
+# Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
@@ -92,15 +91,11 @@
     ];
   };
 
+  programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    ruff
+    clang-tools
     lua
-    nodejs
-    clang
-    gcc
-    go
-    zig
-    python314
+    lua-language-server
   ];
 
   users.defaultUserShell = pkgs.zsh;
@@ -111,6 +106,13 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    ruff
+    lua
+    rocmPackages.clang
+    gcc
+    go
+    zig
+    python314
     wget
     git
     autorandr
@@ -122,6 +124,8 @@
     stow	
     lazygit
     bat
+    nodejs_24
+    glibc
   ];
   fonts.packages = [
            pkgs.nerd-fonts._0xproto

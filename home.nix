@@ -22,6 +22,9 @@
     tmux
     dysk
     tokei
+    bear
+    glibc.dev
+    zed-editor
   ];
 
   home.file = {

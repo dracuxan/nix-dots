@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "beru";
-  home.homeDirectory = "/home/beru";
+  home.username = "dracuxan";
+  home.homeDirectory = "/home/dracuxan";
 
-  home.stateVersion = "24.11"; 
+  home.stateVersion = "25.05"; 
 
   home.packages = with pkgs; [ 
     neovim
@@ -17,16 +17,11 @@
     feh
     btop
     xwallpaper
-    rofi
     flameshot
     xorg.xrandr
     tmux
-    librewolf
     dysk
     tokei
-    scrcpy
-    android-tools
-    gotools
   ];
 
   home.file = {

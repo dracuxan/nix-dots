@@ -6,7 +6,7 @@ clean:
 	nix-collect-garbage --delete-older-than 10d
 
 build:
-	@nixos-rebuild switch --flake .#dracuxan --impure
+	@nixos-rebuild switch --flake .#dracuxan
 
 update:
 	@nix flake update

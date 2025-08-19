@@ -98,6 +98,9 @@
     nodejs
     clang
     gcc
+    go
+    zig
+    python314
   ];
 
   users.defaultUserShell = pkgs.zsh;
@@ -110,20 +113,10 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    neovim
-    starship
-    alacritty
-    fastfetch
-    btop
-    xwallpaper
-    flameshot
     autorandr
-    go
-    zig
     tmux
     unzip
     gh
-    python314
     gnumake
     pcmanfm
     stow	

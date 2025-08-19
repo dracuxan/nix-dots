@@ -1,6 +1,9 @@
 -- Standalone plugins with less than 10 lines of config go here
 return {
 	{
+		"folke/zen-mode.nvim",
+	},
+	{
 		-- Detect tabstop and shiftwidth automatically
 		"tpope/vim-sleuth",
 	},
@@ -34,7 +37,9 @@ return {
 		-- High-performance color highlighter
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup(nil, {
+				names = false,
+			})
 		end,
 	},
 	{
@@ -42,5 +47,21 @@ return {
 		dependencies = "nvzone/volt",
 		opts = {},
 		cmd = { "Typr", "TyprStats" },
+	},
+	{
+		"alexghergh/nvim-tmux-navigation",
+		config = function()
+			require("nvim-tmux-navigation").setup({
+				disable_when_zoomed = true, -- defaults to false
+				keybindings = {
+					left = "<C-h>",
+					down = "<C-j>",
+					up = "<C-k>",
+					right = "<C-l>",
+					last_active = "<C-\\>",
+					next = "<C-Space>",
+				},
+			})
+		end,
 	},
 }

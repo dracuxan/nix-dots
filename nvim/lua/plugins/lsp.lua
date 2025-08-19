@@ -5,40 +5,8 @@ local function organize_imports()
 		arguments = { vim.api.nvim_buf_get_name(0) },
 	}
 	vim.lsp.buf.execute_command(params)
+	-- Client:exec_cmd(params)
 end
-
--- LSP Diagnostics Options Setup
-local sign = function(opts)
-	vim.fn.sign_define(opts.name, {
-		texthl = opts.name,
-		text = opts.text,
-		numhl = "",
-	})
-end
-
-sign({ name = "DiagnosticSignError", text = "" })
-sign({ name = "DiagnosticSignWarn", text = "" })
-sign({ name = "DiagnosticSignHint", text = "" })
-sign({ name = "DiagnosticSignInfo", text = "" })
-
-vim.diagnostic.config({
-	virtual_text = false,
-	signs = true,
-	update_in_insert = true,
-	underline = true,
-	severity_sort = false,
-	float = {
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
-})
-
-vim.cmd([[
-set signcolumn=yes
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
 
 return {
 	-- Main LSP Configuration
@@ -51,7 +19,7 @@ return {
 
 		-- Useful status updates for LSP.
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ "j-hui/fidget.nvim",       opts = {} },
+		{ "j-hui/fidget.nvim", opts = {} },
 
 		-- Allows extra capabilities provided by nvim-cmp
 		"hrsh7th/cmp-nvim-lsp",
@@ -182,8 +150,8 @@ return {
 					vim.diagnostic.config({
 						update_in_insert = true, -- Show errors while typing
 						virtual_text = true, -- Show inline errors
-						signs = true,      -- Show signs in the gutter
-						underline = true,  -- Underline errors
+						signs = true, -- Show signs in the gutter
+						underline = true, -- Underline errors
 					})
 				end
 
@@ -231,16 +199,14 @@ return {
 				filetypes = { "c", "cpp", "objc", "objcpp" },
 			},
 
-			rust_analyzer = {
+			bashls = {
 				capabilities = capabilities,
-				cmd = { "rust-analyzer" },
-				filetypes = { "rs", "cargo" },
 			},
 
 			gopls = {
 				capabilities = capabilities,
 				cmd = { "gopls" },
-				filetypes = { "go", "gomod", "gowork", "gotmpl" },
+				filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" },
 				settings = {
 					gopls = {
 						analyses = {
@@ -251,7 +217,6 @@ return {
 					},
 				},
 			},
-
 			pyright = {
 				capabilities = capabilities,
 			},
@@ -271,7 +236,21 @@ return {
 				},
 			}, -- tsserver is deprecated
 
-			html = { filetypes = { "html", "twig", "hbs" } },
+			rust_analyzer = {
+				capabilities = capabilities,
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							loadOutDirsFromCheck = true,
+						},
+						procMacro = {
+							enable = true,
+						},
+					},
+				},
+			},
+
+			html = { filetypes = { "html", "twig", "hbs", "tsx" } },
 			cssls = {},
 
 			zls = {

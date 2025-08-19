@@ -97,6 +97,9 @@ local new_opts = { desc = "Reload current Lua file", noremap = true, silent = tr
 
 vim.keymap.set("n", "<leader>rr", ":luafile %<CR>", new_opts)
 
+-- Open Lazy Plugin Manager
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", opts)
+
 -- For terminal navigation
 vim.keymap.set("t", "<C-h>", [[<C-\><C-N><C-w>h]])
 vim.keymap.set("t", "<C-j>", [[<C-\><C-N><C-w>j]])

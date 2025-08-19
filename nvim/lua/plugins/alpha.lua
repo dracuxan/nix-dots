@@ -1,3 +1,4 @@
+local alpa = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
 dashboard.section.header.val = {
@@ -16,6 +17,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("n", "  New file", "<cmd>ene | startinsert<cr>"),
 	dashboard.button("c", "  Config", "<cmd>e $MYVIMRC<cr>"),
 	dashboard.button("l", "  Lazygit", "<cmd>lua _LAZYGIT_TOGGLE()<cr>"),
+	dashboard.button("s", "  Search Session", "<cmd>SessionSearch<cr>"),
 	-- dashboard.button("s", "  Restore Session", "<cmd>lua require('persistence').load()<cr>"),
 	dashboard.button("q", "  Quit", "<cmd>qa<cr>"),
 }
@@ -31,4 +33,4 @@ dashboard.section.footer.opts.hl = "AlphaFooter"
 
 dashboard.opts.layout[1].val = 8
 
-return dashboard.config
+alpa.setup(dashboard.config)

@@ -19,7 +19,7 @@ echo "[+] Stowing dotfiles..."
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "[+] Preparing ~/.config layout..."
-for dir in alacritty fastfetch nvim qtile; do
+for dir in alacritty fastfetch nvim i3; do
     mkdir -p "$HOME/.config/$dir"
 done
 
@@ -28,13 +28,12 @@ echo "[+] Stowing configs into ~/.config..."
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/alacritty" alacritty
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/fastfetch" fastfetch
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/nvim" nvim
-stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/qtile" qtile
+stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/i3" i3
 
 echo "[+] Stowing legacy dotfiles into ~..."
-stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config" starship
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME" zsh
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME" tmux
-stow --adopt -d "$DOTFILES_DIR" -t "$HOME/bin" scripts
+stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.local/bin" scripts
 
 echo "-----------------------------------------"
 echo "       Setup Complete — Reboot Now       "

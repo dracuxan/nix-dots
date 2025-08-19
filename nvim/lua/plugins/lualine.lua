@@ -6,17 +6,17 @@ local lualine = require("lualine")
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  bg       = '#1F1F28',
-  fg       = '#DCD7BA',
-  yellow   = '#E6C384',
-  cyan     = '#7AA89F',
-  darkblue = '#223249',
-  green    = '#98BB6C',
-  orange   = '#C0A36E',
-  violet   = '#938AA9',
-  magenta  = '#957FB8',
-  blue     = '#7E9CD8',
-  red      = '#C34043',
+	bg       = '#1F1F28',
+	fg       = '#DCD7BA',
+	yellow   = '#E6C384',
+	cyan     = '#7AA89F',
+	darkblue = '#223249',
+	green    = '#98BB6C',
+	orange   = '#C0A36E',
+	violet   = '#938AA9',
+	magenta  = '#957FB8',
+	blue     = '#7E9CD8',
+	red      = '#C34043',
 }
 
 local conditions = {
@@ -37,7 +37,7 @@ local conditions = {
 local config = {
 	options = {
 		globalstatus = true,
-		disabled_filetypes = { "alpha", "TelescopePrompt", "toggleterm" },
+		disabled_filetypes = { "alpha", "TelescopePrompt" },
 		-- Disable sections and component separators
 		component_separators = "",
 		section_separators = "",
@@ -167,13 +167,17 @@ ins_right({
 			return "No LSP"
 		end
 
+		local excluded_clients = {
+			["null-ls"] = true,
+			["GitHub Copilot"] = true,
+		}
+
 		local client_names = {}
 		for _, client in pairs(clients) do
-			if client.name ~= "null-ls" then
+			if not excluded_clients[client.name] then
 				table.insert(client_names, client.name)
 			end
 		end
-
 		return table.concat(client_names, ", ")
 	end,
 	icon = " LSP:",

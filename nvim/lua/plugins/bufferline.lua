@@ -18,8 +18,8 @@ require("bufferline").setup({
 			return vim.fn.fnamemodify(relative_path, ":t")
 		end,
 		-- set to "tabs" to only show tabpages instead
-		themable = true,        -- allows highlight groups to be overridden
-		numbers = "none",       -- "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+		themable = true, -- allows highlight groups to be overridden
+		numbers = "none", -- "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
 		close_command = "bd! %d", -- Use 'bd! %d' instead if 'Bdelete' is unavailable
 		buffer_close_icon = "✗",
 		close_icon = "✗",

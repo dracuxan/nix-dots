@@ -3,7 +3,7 @@
 all: build install
 
 build:
-	@nixos-rebuild switch --flake .#beru
+	@nixos-rebuild switch --flake .#dracuxan
 
 update:
 	@nix flake update

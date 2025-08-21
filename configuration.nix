@@ -60,23 +60,24 @@
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
 	enable = true;
 	windowManager.i3.enable = true;
 	displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Wallpapers/smile.png
-      xset r rate 200 30 &
-    '';
-	};
+          xwallpaper --zoom ~/Wallpapers/smile.png
+          xset r rate 200 30 &
+        '';
+  };
   
   services.picom = {
     enable = true;
     backend = "glx";
   };
-
-
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";

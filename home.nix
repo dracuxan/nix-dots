@@ -25,6 +25,7 @@
     bear
     glibc.dev
     zed-editor
+    obsidian
   ];
 
   home.file = {

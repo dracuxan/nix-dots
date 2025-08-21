@@ -20,7 +20,7 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
 
   # Set your time zone.
@@ -36,6 +36,20 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
+  # services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+
+  # boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   open = false;
+  #  prime = {
+  #    sync.enable = true;
+  #    amdgpuBusId = "PCI:5:0:0";     # AMD GPU (05:00.0)
+  #    nvidiaBusId = "PCI:1:0:0";     # NVIDIA GPU (01:00.0)
+  #   };
+  # };
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -51,7 +65,7 @@
 	enable = true;
 	windowManager.i3.enable = true;
 	displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Downloads/gruvbox_image31.png
+      xwallpaper --zoom ~/Wallpapers/smile.png
       xset r rate 200 30 &
     '';
 	};
@@ -108,6 +122,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     ruff
     lua
+    pciutils
     rocmPackages.clang
     gcc
     go

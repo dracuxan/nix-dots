@@ -44,8 +44,8 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
 vim.keymap.set("n", "<leader>x", function()
-	local bufnr = vim.api.nvim_get_current_buf() -- Get the current buffer number
-	local buffers = vim.fn.getbufinfo({ buflisted = 1 }) -- Get list of open buffers
+	local bufnr = vim.api.nvim_get_current_buf()          -- Get the current buffer number
+	local buffers = vim.fn.getbufinfo({ buflisted = 1 })  -- Get list of open buffers
 
 	if #buffers > 1 then
 		vim.cmd("bnext") -- Switch to the next buffer
@@ -99,6 +99,9 @@ vim.keymap.set("n", "<leader>rr", ":luafile %<CR>", new_opts)
 
 -- Open Lazy Plugin Manager
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", opts)
+
+-- Open Alpha
+vim.keymap.set("n", "<M-m>a", "<cmd>Alpha<CR>", opts)
 
 -- For terminal navigation
 vim.keymap.set("t", "<C-h>", [[<C-\><C-N><C-w>h]])

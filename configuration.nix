@@ -115,7 +115,7 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.zsh.enable = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -142,6 +142,9 @@
     bat
     nodejs_24
     glibc
+    stdmanpages
+    man-pages
+    man-db
   ];
   fonts.packages = [
            pkgs.nerd-fonts._0xproto

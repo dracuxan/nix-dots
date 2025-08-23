@@ -1,12 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, system, ... }:
 
 {
   home.username = "dracuxan";
   home.homeDirectory = "/home/dracuxan";
 
-  home.stateVersion = "25.05"; 
+  home.stateVersion = "25.05";
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     neovim
     alacritty
     starship
@@ -24,13 +24,13 @@
     tokei
     bear
     glibc.dev
+    inputs.zen-browser.packages.${system}.default
   ];
 
-  home.file = {
-  };
+  home.file = { };
 
-  home.sessionVariables = {
-  };
+  home.sessionVariables = { };
 
   programs.home-manager.enable = true;
 }
+

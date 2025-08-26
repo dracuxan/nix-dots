@@ -23,6 +23,7 @@
     dysk
     tokei
     bear
+    traceroute
     glibc.dev
     inputs.zen-browser.packages.${system}.default
   ];

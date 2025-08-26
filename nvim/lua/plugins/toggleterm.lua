@@ -69,6 +69,17 @@ function _MAKE_RUN()
 	make:toggle()
 end
 
+function _MAKE()
+	local make = Terminal:new({
+		cmd = "make",
+		hidden = false,
+		direction = "horizontal",
+		persist_size = true,
+		close_on_exit = false,
+	})
+	make:toggle()
+end
+
 function _MAKE_TEST()
 	local make = Terminal:new({
 		cmd = "make test",
@@ -121,6 +132,7 @@ end
 
 -- Set keymaps
 vim.keymap.set("n", "<M-m>s", _RUN_SCRIPT, { noremap = true, silent = true, desc = "use run script" })
+vim.keymap.set("n", "<M-m>m", _MAKE, { noremap = true, silent = true, desc = "make" })
 vim.keymap.set("n", "<M-m>r", _MAKE_RUN, { noremap = true, silent = true, desc = "make run" })
 vim.keymap.set("n", "<M-m>t", _MAKE_TEST, { noremap = true, silent = true, desc = "make test" })
 vim.keymap.set("n", "<M-m>b", _MAKE_BUILD, { noremap = true, silent = true, desc = "make build" })

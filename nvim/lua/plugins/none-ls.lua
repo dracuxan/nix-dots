@@ -5,10 +5,10 @@ local formatting = null_ls.builtins.formatting -- to setup formatters
 -- Formatters & linters for mason to install
 require("mason-null-ls").setup({
 	ensure_installed = {
-		"stylua",  -- lua formatter
-		"shfmt",   -- Shell formatter
+		"stylua", -- lua formatter
+		"shfmt", -- Shell formatter
 		"checkmake", -- linter for Makefiles
-		"ruff",    -- Python linter and formatter
+		"ruff", -- Python linter and formatter
 		-- "golines",
 		"gofumpt",
 		"clangd",

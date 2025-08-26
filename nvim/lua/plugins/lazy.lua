@@ -316,25 +316,6 @@ local custom_plugins = {
 			vim.cmd([[silent! GoInstallDeps]])
 		end,
 	},
-	{
-		"simrat39/rust-tools.nvim",
-	},
-
-	-- {
-	-- 	"github/copilot.vim",
-	-- },
-	-- {
-	-- 	"saecki/crates.nvim",
-	-- 	ft = { "rust", "toml" },
-	-- 	config = function(_, opts)
-	-- 		local crates = require("crates")
-	-- 		crates.setup(opts)
-	-- 		require("cmp").setup.buffer({
-	-- 			sources = { { name = "crates" } },
-	-- 		})
-	-- 		crates.show()
-	-- 	end,
-	-- },
 }
 
 require("lazy").setup(custom_plugins)

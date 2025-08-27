@@ -32,10 +32,10 @@ local custom_plugins = {
 					},
 				},
 				presets = {
-					bottom_search = true,    -- use a classic bottom cmdline for search
-					command_palette = true,  -- position the cmdline and popupmenu together
+					bottom_search = true, -- use a classic bottom cmdline for search
+					command_palette = true, -- position the cmdline and popupmenu together
 					long_message_to_split = true, -- long messages will be sent to a split
-					lsp_doc_border = true,   -- add a border to hover docs and signature help
+					lsp_doc_border = true, -- add a border to hover docs and signature help
 				},
 			})
 		end,
@@ -82,25 +82,25 @@ local custom_plugins = {
 
 	-- colorschemes
 
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("plugins.kanagawa")
-		end,
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("plugins.kanagawa")
+	-- 	end,
+	-- },
 
-	{
-		"Mofiqul/vscode.nvim",
-		version = false,
-		lazy = false,
-		priority = 1000, -- make sure to load this before all the other start plugins
-		-- Optional; default configuration will be used if setup isn't called.
-		config = function()
-			require("plugins.vscode")
-		end,
-	},
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	version = false,
+	-- 	lazy = false,
+	-- 	priority = 1000, -- make sure to load this before all the other start plugins
+	-- 	-- Optional; default configuration will be used if setup isn't called.
+	-- 	config = function()
+	-- 		require("plugins.vscode")
+	-- 	end,
+	-- },
 
 	{
 		"datsfilipe/vesper.nvim",
@@ -187,7 +187,7 @@ local custom_plugins = {
 				end,
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			require("plugins.telescope") -- Loads the Telescope configuration

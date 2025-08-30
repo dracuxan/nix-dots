@@ -60,8 +60,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# Shutdown
+bindsym $mod+Shift+q exec shutdown -h now
+
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run

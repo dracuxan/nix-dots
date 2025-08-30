@@ -70,7 +70,7 @@
 	enable = true;
 	windowManager.i3.enable = true;
 	displayManager.sessionCommands = ''
-          xwallpaper --zoom ~/Wallpapers/smile.png
+          xwallpaper --zoom ~/Wallpapers/chinatown.png
           xset r rate 200 30 &
         '';
   };

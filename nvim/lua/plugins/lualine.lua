@@ -169,7 +169,7 @@ ins_right({
 
 		local excluded_clients = {
 			["GitHub Copilot"] = true,
-			["null-ls"] = true,
+			-- ["null-ls"] = true,
 		}
 
 		local client_names = {}

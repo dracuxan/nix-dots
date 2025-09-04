@@ -193,6 +193,11 @@ return {
 
 		local servers = {
 
+			nil_ls = {
+				capabilities = capabilities,
+				filetypes = { "nix" },
+			},
+
 			clangd = {
 				capabilities = capabilities,
 				filetypes = { "c", "cpp", "objc", "objcpp", "h" },

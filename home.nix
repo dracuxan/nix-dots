@@ -25,6 +25,8 @@
     bear
     traceroute
     glibc.dev
+    http-server
+    obs-studio
     inputs.zen-browser.packages.${system}.default
   ];
 

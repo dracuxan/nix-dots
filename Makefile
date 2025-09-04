@@ -1,6 +1,6 @@
 .PHONY: all build install update
 
-all: build install
+all: build
 
 clean:
 	nix-collect-garbage --delete-older-than 10d

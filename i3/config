@@ -178,9 +178,6 @@ bar {
 }
 #Custom Config
 
-# startup commands
-exec --no-startup-id unclutter -idle 5
-
 # keybind for OBS
 bindsym $mod+o exec obs
 

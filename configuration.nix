@@ -36,17 +36,23 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
-	enable = true;
-	windowManager.i3.enable = true;
-	displayManager.sessionCommands = ''
-          xwallpaper --zoom ~/Wallpapers/chinatown.png
-          xset r rate 200 30 &
-        '';
+    enable = true;
+    displayManager.sessionCommands = ''
+      xwallpaper --zoom ~/Wallpapers/chinatown.png
+      xset r rate 200 30 &
+    '';
   };
-  
+
   services.picom = {
     enable = true;
     backend = "glx";
+  };
+
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraSessionCommands = ''
+      picom --experimental-backends --config /home/dracuxan/.config/picom/picom.conf &
+    '';
   };
 
   users.users.dracuxan = {

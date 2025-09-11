@@ -75,6 +75,9 @@ alias alacritty_conf='nv /home/dracuxan/.config/alacritty/alacritty.toml'
 # nix aliases
 alias nd='nix develop'
 
+# Go paths
+export PATH=$HOME/go/bin:$PATH
+
 # Startup Commands
 neo
 eval "$(starship init zsh)"

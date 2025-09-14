@@ -183,7 +183,7 @@ bar {
 bindsym $mod+x exec /home/$USER/.config/scripts/lock
 
 # Startup commands
-exec --no-startup-id  xrandr --output HDMI-1-1 --auto --left-of eDP-1
+exec --no-startup-id  xrandr --output HDMI-1-0 --auto --left-of eDP
 
 exec --no-startup-id  xwallpaper --stretch ~/Wallpapers/chinatown.png
 

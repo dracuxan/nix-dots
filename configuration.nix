@@ -15,6 +15,27 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  # graphics support
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.graphics.enable = true;
+
+  hardware.nvidia = {
+  modesetting.enable = true;
+  open = false;
+
+  nvidiaSettings = true;
+
+  prime = {
+    offload.enable = true;
+
+    amdgpuBusId = "PCI:5:0:0";
+
+    nvidiaBusId = "PCI:1:0:0";
+  };
+  };
+
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";

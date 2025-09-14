@@ -178,13 +178,18 @@ bar {
 }
 #Custom Config
 
+# Startup commands
+exec --no-startup-id  xrandr --output HDMI-1-1 --auto --left-of eDP-1
+
+exec --no-startup-id  xwallpaper --stretch ~/Wallpapers/chinatown.png
+
 # keybind for OBS
 bindsym $mod+o exec obs
 
 # Colorscheme
 
 # Focused window (active)
-client.focused          #ffffff #ffffff #ffffff #ffffff #ffffff
+client.focused          #ffffff #ffffff #888888 #ffffff #ffffff
 
 # Unfocused windows
 client.unfocused        #1D1E1C #000000 #888888 #000000 #1D1E1C 
@@ -193,8 +198,11 @@ client.unfocused        #1D1E1C #000000 #888888 #000000 #1D1E1C
 focus_follows_mouse no
 
 # No title bars, but keep thin highlight border
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 3
+default_floating_border pixel 3
+
+# Force all new windows into tabbed layout
+workspace_layout tabbed
 
 # Shutdown
 bindsym $mod+Shift+d exec shutdown -h now
@@ -217,7 +225,7 @@ bindsym $mod+m bar mode invisible
 bindsym $mod+Shift+m bar mode dock
 
 # Set space between windows and screen edges
-gaps outer 10
+gaps outer 0
 
 # Set space between windows
-gaps inner 10
+gaps inner 0

@@ -54,6 +54,7 @@
       picom --experimental-backends --config /home/dracuxan/.config/picom/picom.conf &
     '';
   };
+  programs.i3lock.enable = false;
 
   users.users.dracuxan = {
     isNormalUser = true;
@@ -75,6 +76,7 @@
 
   programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
+    i3lock-color
     vim
     ruff
     lua

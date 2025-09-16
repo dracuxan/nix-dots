@@ -15,6 +15,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  services.logind.lidSwitch = "ignore";
+  
   # graphics support
 
   services.xserver.videoDrivers = ["nvidia"];

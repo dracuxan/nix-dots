@@ -185,7 +185,7 @@ bindsym $mod+x exec /home/$USER/.config/scripts/lock
 # Startup commands
 exec --no-startup-id  xrandr --output HDMI-1-0 --auto --left-of eDP
 
-exec --no-startup-id  xwallpaper --stretch ~/Wallpapers/chinatown.png
+exec --no-startup-id  xwallpaper --stretch ~/Wallpapers/joyboy.png
 
 # keybind for OBS
 bindsym $mod+o exec obs

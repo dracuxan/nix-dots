@@ -59,7 +59,7 @@
   services.xserver = {
     enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Wallpapers/chinatown.png
+      xwallpaper --stretch ~/Wallpapers/joyboy.png
       xset r rate 200 30 &
     '';
   };
@@ -97,6 +97,7 @@
 
   programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
+    tcpdump
     i3lock-color
     vim
     ruff

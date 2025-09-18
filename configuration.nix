@@ -38,6 +38,12 @@
   };
   };
 
+  # Game setup
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+
+  programs.gamemode.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -55,7 +61,6 @@
   services.blueman.enable = true;
 
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -98,6 +103,7 @@
 
   programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
+    mangohud
     tcpdump
     vim
     ruff

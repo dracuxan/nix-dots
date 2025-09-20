@@ -135,6 +135,9 @@
     scrcpy
     android-tools
     sioyek
+    postgresql
+    libxcvt
+    cmus
   ];
 
   fonts.packages = [

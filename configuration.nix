@@ -134,6 +134,7 @@
     man-db
     scrcpy
     android-tools
+    sioyek
   ];
 
   fonts.packages = [

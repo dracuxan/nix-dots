@@ -1,6 +1,9 @@
 -- Standalone plugins with less than 10 lines of config go here
 return {
 	{
+		"ThePrimeagen/vim-be-good",
+	},
+	{
 		-- Detect tabstop and shiftwidth automatically
 		"tpope/vim-sleuth",
 	},

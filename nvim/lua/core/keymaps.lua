@@ -1,3 +1,4 @@
+local vim = vim
 -- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -26,9 +27,6 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
 vim.keymap.set("i", "<C-s>", "<Esc><cmd> w <CR>", opts)
 vim.keymap.set("n", "<C-a>s", "<cmd>noautocmd w <CR>", opts)
-
--- quit file
-vim.keymap.set("n", "<C-q>", "<cmd> q <CR>", opts)
 
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x', opts)

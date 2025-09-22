@@ -62,6 +62,12 @@
 
   services.displayManager.gdm.enable = true;
 
+  # Postgres setup
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -135,7 +141,6 @@
     scrcpy
     android-tools
     sioyek
-    postgresql
     libxcvt
     cmus
   ];

@@ -7,6 +7,12 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    fzf
+    bat
+    ripgrep
+    perl
+    silver-searcher
+    universal-ctags
     neovim
     alacritty
     starship

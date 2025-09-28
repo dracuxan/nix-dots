@@ -143,6 +143,7 @@
     sioyek
     libxcvt
     cmus
+    elmPackages.elm
   ];
 
   fonts.packages = [

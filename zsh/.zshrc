@@ -21,6 +21,12 @@ bindkey '^[j' down-line-or-history
 # ALT + K (Move Up in history)
 bindkey '^[k' up-line-or-history
 
+# Ctrl + T to execute tmux
+bindkey -s '^T' 'tm\n'
+
+# Ctrl + T to execute tmux
+bindkey -s '^F' 'fzf\n'
+
 #Disabeling arrow keys
 bindkey -r "^[[A"  # Remove Up Arrow
 bindkey -r "^[[B"  # Remove Down Arrow

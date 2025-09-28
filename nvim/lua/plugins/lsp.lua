@@ -19,7 +19,7 @@ return {
 
 		-- Useful status updates for LSP.
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ "j-hui/fidget.nvim",       opts = {} },
+		{ "j-hui/fidget.nvim", opts = {} },
 
 		-- Allows extra capabilities provided by nvim-cmp
 		"hrsh7th/cmp-nvim-lsp",
@@ -67,31 +67,24 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				-- Jump to the definition of the word under your cursor.
-				--  This is where a variable was first declared, or where a function is defined, etc.
-				--  To jump back, press <C-t>.
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				local fzf = require("fzf-lua")
+				-- Jump to the definition of the word under your cursor
+				map("gd", fzf.lsp_definitions, "[G]oto [D]efinition")
 
-				-- Find references for the word under your cursor.
-				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+				-- Find references for the word under your cursor
+				map("gr", fzf.lsp_references, "[G]oto [R]eferences")
 
-				-- Jump to the implementation of the word under your cursor.
-				--  Useful when your language has ways of declaring types without an actual implementation.
-				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+				-- Jump to the implementation of the word under your cursor
+				map("gI", fzf.lsp_implementations, "[G]oto [I]mplementation")
 
-				-- Jump to the type of the word under your cursor.
-				--  Useful when you're not sure what type a variable is and you want to see
-				--  the definition of its *type*, not where it was *defined*.
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+				-- Jump to the type of the word under your cursor
+				map("<leader>D", fzf.lsp_typedefs, "Type [D]efinition")
 
-				-- Fuzzy find all the symbols in your current document.
-				--  Symbols are things like variables, functions, types, etc.
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+				-- Fuzzy find all the symbols in your current document
+				map("<leader>ds", fzf.lsp_document_symbols, "[D]ocument [S]ymbols")
 
-				-- Fuzzy find all the symbols in your current workspace.
-				--  Similar to document symbols, except searches over your entire project.
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-
+				-- Fuzzy find all the symbols in your current workspace
+				map("<leader>ws", fzf.lsp_live_workspace_symbols, "[W]orkspace [S]ymbols")
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -150,8 +143,8 @@ return {
 					vim.diagnostic.config({
 						update_in_insert = true, -- Show errors while typing
 						virtual_text = true, -- Show inline errors
-						signs = true,      -- Show signs in the gutter
-						underline = true,  -- Underline errors
+						signs = true, -- Show signs in the gutter
+						underline = true, -- Underline errors
 					})
 				end
 
@@ -246,6 +239,10 @@ return {
 				capabilities = capabilities,
 			},
 
+			elmls = {
+				capabilities = capabilities,
+			},
+
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -253,13 +250,6 @@ return {
 							callSnippet = "Replace",
 						},
 						runtime = { version = "LuaJIT" },
-						workspace = {
-							checkThirdParty = false,
-							library = {
-								"${3rd}/luv/library",
-								unpack(vim.api.nvim_get_runtime_file("", true)),
-							},
-						},
 						diagnostics = { disable = { "missing-fields" }, globals = { "vim" } },
 						format = {
 							enable = false,

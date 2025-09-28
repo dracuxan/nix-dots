@@ -1,9 +1,6 @@
 -- Standalone plugins with less than 10 lines of config go here
 return {
 	{
-		"ThePrimeagen/vim-be-good",
-	},
-	{
 		-- Detect tabstop and shiftwidth automatically
 		"tpope/vim-sleuth",
 	},
@@ -29,12 +26,6 @@ return {
 				names = false,
 			})
 		end,
-	},
-	{
-		"nvzone/typr",
-		dependencies = "nvzone/volt",
-		opts = {},
-		cmd = { "Typr", "TyprStats" },
 	},
 	{
 		"alexghergh/nvim-tmux-navigation",

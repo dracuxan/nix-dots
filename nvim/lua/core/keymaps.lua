@@ -10,10 +10,6 @@ local opts = { noremap = true, silent = true }
 -- Exit to normal mode
 vim.keymap.set("i", "jj", "<Esc>", opts)
 
--- Toogle NeoTree
-vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", opts)
-vim.keymap.set("i", "<C-n>", "<Esc><cmd>Neotree toggle<CR>", opts)
-
 -- Navigation in insert mode
 vim.keymap.set("i", "<C-h>", "<Left>", opts)
 vim.keymap.set("i", "<C-l>", "<Right>", opts)
@@ -45,8 +41,8 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
 vim.keymap.set("n", "<leader>x", function()
-	local bufnr = vim.api.nvim_get_current_buf()          -- Get the current buffer number
-	local buffers = vim.fn.getbufinfo({ buflisted = 1 })  -- Get list of open buffers
+	local bufnr = vim.api.nvim_get_current_buf() -- Get the current buffer number
+	local buffers = vim.fn.getbufinfo({ buflisted = 1 }) -- Get list of open buffers
 
 	if #buffers > 1 then
 		vim.cmd("bnext") -- Switch to the next buffer
@@ -57,23 +53,11 @@ vim.keymap.set("n", "<leader>x", function()
 	vim.cmd("bdelete! " .. bufnr) -- Delete the previous buffer
 end, opts)
 
--- Window management
--- vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
--- vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
--- vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
--- vim.keymap.set("n", "<leader>xs", ":close<CR>", opts) -- close current split window
-
 -- Navigate between splits
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)
 vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", opts)
 vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", opts)
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
-
--- -- Tabs
--- vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
--- vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
--- vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
--- vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
 
 -- Toggle line wrapping
 -- vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
@@ -88,10 +72,6 @@ vim.keymap.set("v", "p", '"_dP', opts)
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
--- Typing Test
-vim.keymap.set("n", "<C-t>", ":Typr<CR>", opts)
-vim.keymap.set("n", "<M-t>", ":TyprStat<CR>", opts)
 
 -- Reload Config
 local new_opts = { desc = "Reload current Lua file", noremap = true, silent = true }

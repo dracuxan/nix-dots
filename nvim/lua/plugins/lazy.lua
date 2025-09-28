@@ -11,6 +11,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local custom_plugins = {
+	require("plugins.fzf-lua"),
 	{
 		"folke/noice.nvim",
 		config = function()
@@ -32,10 +33,10 @@ local custom_plugins = {
 					},
 				},
 				presets = {
-					bottom_search = true,    -- use a classic bottom cmdline for search
-					command_palette = true,  -- position the cmdline and popupmenu together
+					bottom_search = true, -- use a classic bottom cmdline for search
+					command_palette = true, -- position the cmdline and popupmenu together
 					long_message_to_split = true, -- long messages will be sent to a split
-					lsp_doc_border = true,   -- add a border to hover docs and signature help
+					lsp_doc_border = true, -- add a border to hover docs and signature help
 				},
 			})
 		end,
@@ -58,26 +59,6 @@ local custom_plugins = {
 		lazy = false,
 	},
 
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-			-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
-		},
-		lazy = false, -- neo-tree will lazily load itself
-		---@module "neo-tree"
-		---@type neotree.Config?
-		opts = {
-			-- fill any relevant options here
-		},
-		config = function()
-			require("plugins.neo-tree")
-		end,
-	},
-
 	{ "wakatime/vim-wakatime", lazy = false },
 
 	-- colorschemes
@@ -97,9 +78,9 @@ local custom_plugins = {
 	-- 	lazy = false,
 	-- 	priority = 1000, -- make sure to load this before all the other start plugins
 	-- 	-- Optional; default configuration will be used if setup isn't called.
-	-- 	config = function()
-	-- 		require("plugins.vscode")
-	-- 	end,
+	-- config = function()
+	-- require("plugins.vscode")
+	-- end,
 	-- },
 
 	{
@@ -171,26 +152,6 @@ local custom_plugins = {
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		config = function()
 			require("plugins.treesitter") -- Loads the Treesitter configuration
-		end,
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		event = "VimEnter",
-		branch = "0.1.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make",
-				cond = function()
-					return vim.fn.executable("make") == 1
-				end,
-			},
-			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
-		},
-		config = function()
-			require("plugins.telescope") -- Loads the Telescope configuration
 		end,
 	},
 	{
@@ -283,18 +244,9 @@ local custom_plugins = {
 			)
 		end,
 	},
-	{
-		"goolord/alpha-nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-
-		config = function()
-			require("plugins.alpha")
-		end,
-	},
 
 	require("plugins.misic"),
+	require("plugins.oil"),
 
 	{
 		"mfussenegger/nvim-dap",

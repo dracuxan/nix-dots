@@ -131,7 +131,7 @@ function _LAZYGIT_TOGGLE()
 end
 
 -- Set keymaps
-vim.keymap.set("n", "<M-m>s", _RUN_SCRIPT, { noremap = true, silent = true, desc = "use run script" })
+vim.keymap.set("n", "<M-m>s", _RUN_SCRIPT, { noremap = true, silent = true, desc = "run code" })
 vim.keymap.set("n", "<M-m>m", _MAKE, { noremap = true, silent = true, desc = "make" })
 vim.keymap.set("n", "<M-m>r", _MAKE_RUN, { noremap = true, silent = true, desc = "make run" })
 vim.keymap.set("n", "<M-m>t", _MAKE_TEST, { noremap = true, silent = true, desc = "make test" })

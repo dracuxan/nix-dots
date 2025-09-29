@@ -53,6 +53,11 @@ rs)
     rustc "$FILE_PATH" -o ./target/$FILE_NAME
     ./target/${FILE_NAME} $ARGS
     ;;
+elm)
+    echo "Running elm project..."
+    echo ""
+    elm reactor
+    ;;
 *)
     echo "Unsupported file type: .$EXT"
     exit 1

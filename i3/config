@@ -200,6 +200,7 @@ client.unfocused        #1D1E1C #000000 #888888 #000000 #1D1E1C
 
 # mouse for focus
 focus_follows_mouse no
+mouse_warping none
 
 # No title bars, but keep thin highlight border
 default_border pixel 3

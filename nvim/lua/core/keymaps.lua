@@ -81,12 +81,12 @@ vim.keymap.set("n", "<leader>rr", ":luafile %<CR>", new_opts)
 -- Open Lazy Plugin Manager
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", opts)
 
--- Open Alpha
-vim.keymap.set("n", "<M-m>a", "<cmd>Alpha<CR>", opts)
-
 -- Quit all
 vim.keymap.set("n", "<C-q>", "<cmd> qa <CR>", opts)
 vim.keymap.set("i", "<C-q>", "<cmd> qa <CR>", opts)
+
+-- Quit
+vim.keymap.set("n", "qq", "<cmd> q <CR>", opts)
 
 -- For terminal navigation
 vim.keymap.set("t", "<C-h>", [[<C-\><C-N><C-w>h]])

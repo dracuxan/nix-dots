@@ -1,12 +1,14 @@
 local vim = vim
-local function organize_imports()
-	local params = {
-		command = "_typescript.organizeImports",
-		arguments = { vim.api.nvim_buf_get_name(0) },
-	}
-	vim.lsp.buf.execute_command(params)
-	-- Client:exec_cmd(params)
-end
+local augroup = augroup
+local bufnr = bufnr
+-- local function organize_imports()
+-- 	local params = {
+-- 		command = "_typescript.organizeImports",
+-- 		arguments = { vim.api.nvim_buf_get_name(0) },
+-- 	}
+-- 	vim.lsp.buf.execute_command(params)
+-- 	-- Client:exec_cmd(params)
+-- end
 
 return {
 	-- Main LSP Configuration
@@ -25,6 +27,8 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
+		local lspconfig = require("lspconfig")
+		local util = lspconfig.util
 		-- Brief aside: **What is LSP?**
 		--
 		-- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -241,6 +245,15 @@ return {
 
 			elmls = {
 				capabilities = capabilities,
+				cmd = { "elm-language-server" },
+				filetypes = { "elm" },
+				init_options = {
+					elmAnalyseTrigger = "change", -- Or "file_open", "save"
+					elmFormatPath = "elm-format", -- Path to elm-format executable
+					elmPath = "elm", -- Path to the elm executable
+					elmTestPath = "elm-test", -- Path to the elm-test executable
+				},
+				root_dir = util.root_pattern("elm.json"),
 			},
 
 			lua_ls = {

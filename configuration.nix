@@ -72,7 +72,7 @@
   services.xserver = {
     enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --stretch ~/Wallpapers/joyboy.png
+      xwallpaper --stretch ~/Wallpapers/sushi.jpg
       xset r rate 200 30 &
     '';
   };

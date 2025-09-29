@@ -11,6 +11,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local custom_plugins = {
+	{
+		"benomahony/oil-git.nvim",
+		dependencies = { "stevearc/oil.nvim" },
+		-- No opts or config needed! Works automatically
+	},
 	require("plugins.fzf-lua"),
 	{
 		"folke/noice.nvim",

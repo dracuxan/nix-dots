@@ -3,7 +3,7 @@
 all: build
 
 clean:
-	nix-collect-garbage --delete-older-than 10d
+	nix-collect-garbage --delete-older-than 1d
 
 build:
 	@nixos-rebuild switch --flake .#dracuxan --impure

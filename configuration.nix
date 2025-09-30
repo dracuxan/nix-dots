@@ -144,6 +144,7 @@
     libxcvt
     cmus
     elmPackages.elm
+    cava
   ];
 
   fonts.packages = [

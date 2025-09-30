@@ -51,7 +51,7 @@ local custom_plugins = {
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-			--   "rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify",
 		},
 	},
 
@@ -67,26 +67,6 @@ local custom_plugins = {
 	{ "wakatime/vim-wakatime", lazy = false },
 
 	-- colorschemes
-
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("plugins.kanagawa")
-	-- 	end,
-	-- },
-
-	-- {
-	-- 	"Mofiqul/vscode.nvim",
-	-- 	version = false,
-	-- 	lazy = false,
-	-- 	priority = 1000, -- make sure to load this before all the other start plugins
-	-- 	-- Optional; default configuration will be used if setup isn't called.
-	-- config = function()
-	-- require("plugins.vscode")
-	-- end,
-	-- },
 
 	{
 		"datsfilipe/vesper.nvim",

@@ -175,6 +175,18 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        colors {
+                background #222222
+                statusline #eeeeee
+                separator  #666666
+
+                                   # border    background   text
+                focused_workspace  #2e3440     #ffffff      #888888
+                active_workspace   #2e3440     #4c566a      #ffffff
+                inactive_workspace #2e3440     #3b4252      #888888
+                urgent_workspace   #2e3440     #bf616a      #ffffff
+                binding_mode       #2e3440     #d08770      #ffffff
+            }
 }
 
 #Custom Config
@@ -185,7 +197,7 @@ bindsym $mod+x exec /home/$USER/.config/scripts/lock
 # Startup commands
 exec --no-startup-id  xrandr --output HDMI-1-0 --auto --left-of eDP
 
-exec --no-startup-id  xwallpaper --stretch ~/Wallpapers/sushi.jpg
+exec --no-startup-id  xwallpaper --center ~/Wallpapers/sushi.jpg
 
 # keybind for OBS
 bindsym $mod+o exec obs

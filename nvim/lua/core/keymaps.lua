@@ -89,6 +89,9 @@ vk("i", "<C-q>", "<cmd> qa <CR>", opts)
 -- Quit
 vk("n", "qq", "<cmd> q <CR>", opts)
 
+-- Find todos using fzf
+vk("n", "<leader>ft", "<cmd> TodoFzfLua <CR>", { desc = "[F]ind [T]odos using fzf", noremap = true, silent = true })
+
 -- For terminal navigation
 vk("t", "<C-h>", [[<C-\><C-N><C-w>h]])
 vk("t", "<C-j>", [[<C-\><C-N><C-w>j]])

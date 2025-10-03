@@ -80,7 +80,7 @@ alias alacritty_conf='nv /home/dracuxan/.config/alacritty/alacritty.toml'
 
 # nix aliases
 alias nd='nix develop'
-alias xw='xwallpaper --stretch ~/Wallpapers/sushi.jpg'
+alias xw='xwallpaper --center ~/Wallpapers/sushi.jpg'
 
 # Go paths
 export PATH=$HOME/go/bin:$PATH

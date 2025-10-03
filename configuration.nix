@@ -145,6 +145,9 @@
     cmus
     elmPackages.elm
     cava
+    metasploit
+    gn
+    ninja
   ];
 
   fonts.packages = [

@@ -121,17 +121,6 @@ local custom_plugins = {
 	},
 
 	{
-		"akinsho/bufferline.nvim",
-		lazy = false,
-		dependencies = {
-			"moll/vim-bbye",
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("plugins.bufferline")
-		end,
-	},
-	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts

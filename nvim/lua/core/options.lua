@@ -57,3 +57,27 @@ vim.opt.listchars = {
 	extends = ">",
 	precedes = "<",
 }
+
+_G.MyTabLabel = function(n)
+	local buf = vim.fn.bufname(vim.fn.tabpagebuflist(n)[vim.fn.tabpagewinnr(n)])
+	return buf ~= "" and "../" .. vim.fn.fnamemodify(buf, ":t") or "[No Name]"
+end
+
+_G.MyTabLine = function()
+	local s, cur, total = "", vim.fn.tabpagenr(), vim.fn.tabpagenr("$")
+	for i = 1, total do
+		s = s .. (i == cur and "%#TabLineSel#" or "%#TabLine#")
+		s = s .. ("%%%dT %%{v:lua.MyTabLabel(%d)} "):format(i, i)
+	end
+	return s .. "%#TabLineFill#%T" .. (total > 1 and "%=%#TabLine#%999Xclose" or "")
+end
+
+vim.o.showtabline = 2
+vim.o.tabline = "%!v:lua.MyTabLine()"
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+		vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none", bold = true })
+		vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+	end,
+})

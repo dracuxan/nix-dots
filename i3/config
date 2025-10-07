@@ -192,7 +192,7 @@ bar {
 #Custom Config
 
 # Shortcut for Lockscreen
-bindsym $mod+x exec /home/$USER/.config/scripts/lock
+bindsym $mod+p exec sioyek
 
 # Startup commands
 exec --no-startup-id  xrandr --output HDMI-1-0 --auto --left-of eDP

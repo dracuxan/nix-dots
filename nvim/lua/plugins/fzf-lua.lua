@@ -84,7 +84,7 @@ return {
 			desc = "[F]ind [O]ld Files",
 		},
 		{
-			"<leader>fb",
+			"<C-b>",
 			function()
 				require("fzf-lua").buffers()
 			end,

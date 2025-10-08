@@ -40,10 +40,10 @@
 
   # Game setup
 
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
+  # programs.steam.enable = true;
+  # programs.steam.gamescopeSession.enable = true;
 
-  programs.gamemode.enable = true;
+  # programs.gamemode.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -61,6 +61,13 @@
   services.blueman.enable = true;
 
   services.displayManager.gdm.enable = true;
+
+  systemd.sleep.extraConfig = ''
+  AllowSuspend=no
+  AllowHibernation=no
+  AllowHybridSleep=no
+  AllowSuspendThenHibernate=no
+'';
 
   # Postgres setup
   services.postgresql = {

@@ -84,7 +84,7 @@ ins_left({
 	function()
 		return "▊"
 	end,
-	color = { fg = colors.blue },     -- Sets highlighting of component
+	color = { fg = colors.blue },
 	padding = { left = 0, right = 1 }, -- We don't need space before this
 })
 
@@ -169,7 +169,7 @@ ins_right({
 
 		local excluded_clients = {
 			["GitHub Copilot"] = true,
-			-- ["null-ls"] = true,
+			["null-ls"] = true,
 		}
 
 		local client_names = {}

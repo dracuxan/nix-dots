@@ -11,12 +11,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local custom_plugins = {
-	{
-		"benomahony/oil-git.nvim",
-		dependencies = { "stevearc/oil.nvim" },
-		-- No opts or config needed! Works automatically
-	},
 	require("plugins.fzf-lua"),
+	require("plugins.misic"),
+	require("plugins.oil"),
+	require("plugins.lsp"),
+	require("plugins.langages"),
+
 	{
 		"folke/noice.nvim",
 		config = function()
@@ -45,14 +45,7 @@ local custom_plugins = {
 				},
 			})
 		end,
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			-- "rcarriga/nvim-notify",
-		},
+		dependencies = { "MunifTanjim/nui.nvim" },
 	},
 
 	{
@@ -66,20 +59,15 @@ local custom_plugins = {
 
 	{ "wakatime/vim-wakatime", lazy = false },
 
-	-- colorschemes
-
 	{
 		"datsfilipe/vesper.nvim",
 		version = false,
 		lazy = false,
 		priority = 1000, -- make sure to load this before all the other start plugins
-		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
 			require("plugins.vesper")
 		end,
 	},
-
-	--
 
 	{
 		"rmagatti/auto-session",
@@ -133,57 +121,6 @@ local custom_plugins = {
 	},
 
 	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		main = "nvim-treesitter.configs", -- Sets main module to use for opts
-		config = function()
-			require("plugins.treesitter") -- Loads the Treesitter configuration
-		end,
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			{
-				"L3MON4D3/LuaSnip",
-				build = (function()
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
-				dependencies = {
-					{
-						"rafamadriz/friendly-snippets",
-						config = function()
-							require("luasnip.loaders.from_vscode").lazy_load()
-						end,
-					},
-				},
-			},
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-		},
-		config = function()
-			require("plugins.cmp")
-		end,
-	},
-
-	require("plugins.lsp"),
-
-	{
-		"nvimtools/none-ls.nvim",
-		dependencies = {
-			"nvimtools/none-ls-extras.nvim",
-			"jayp0521/mason-null-ls.nvim", -- ensures dependencies are installed
-		},
-		config = function()
-			require("plugins.none-ls")
-		end,
-	},
-
-	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
@@ -202,6 +139,7 @@ local custom_plugins = {
 			},
 		},
 	},
+
 	{
 		"numToStr/Comment.nvim",
 		opts = {},
@@ -214,30 +152,6 @@ local custom_plugins = {
 				"<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
 				opts
 			)
-		end,
-	},
-
-	require("plugins.misic"),
-	require("plugins.oil"),
-
-	{
-		"mfussenegger/nvim-dap",
-	},
-	{
-		"theHamsta/nvim-dap-virtual-text",
-		lazy = false,
-		config = function(_, opts)
-			require("nvim-dap-virtual-text").setup(opts)
-		end,
-	},
-	{
-		"olexsmir/gopher.nvim",
-		ft = "go",
-		config = function(_, opts)
-			require("gopher").setup(opts)
-		end,
-		build = function()
-			vim.cmd([[silent! GoInstallDeps]])
 		end,
 	},
 }

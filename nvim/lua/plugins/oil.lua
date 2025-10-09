@@ -10,12 +10,6 @@ return {
 
 				return "  " .. vim.fn.fnamemodify(path, ":.")
 			end
-			vim.cmd([[
-  hi NormalFloat guibg=NONE
-  hi FloatBorder guibg=NONE
-  hi OilNormal guibg=NONE
-  hi OilFloat guibg=NONE
-]])
 
 			require("oil").setup({
 				columns = { "icon" },
@@ -35,18 +29,13 @@ return {
 				},
 			})
 
-			-- Open parent directory in current window
 			vim.keymap.set("n", "<space>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-			-- vim.keymap.set("n", "-", function()
-			-- 	-- Open vertical split on the right
-			-- 	vim.cmd("vsplit | wincmd l")
-			-- 	-- Resize it to 10% of total columns
-			-- 	vim.cmd("vertical resize " .. math.floor(vim.o.columns / 4))
-			-- 	-- Open oil in the new window
-			-- 	require("oil").open()
-			-- end)
-			-- Open parent directory in floating window
 			vim.keymap.set("n", "-", require("oil").toggle_float)
 		end,
+	},
+
+	{
+		"benomahony/oil-git.nvim",
+		dependencies = { "stevearc/oil.nvim" },
 	},
 }

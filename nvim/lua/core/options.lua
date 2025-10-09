@@ -74,10 +74,15 @@ end
 
 vim.o.showtabline = 2
 vim.o.tabline = "%!v:lua.MyTabLine()"
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
 		vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
 		vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none", bold = true })
 		vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+		vim.api.nvim_set_hl(0, "OilNormal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "OilFloat", { bg = "none" })
 	end,
 })

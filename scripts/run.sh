@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 FILE_PATH=$1
 shift     # Remove the file path from the list of arguments
 ARGS="$@" # Capture any additional arguments
@@ -57,6 +56,11 @@ elm)
     echo "Running elm project..."
     echo ""
     elm reactor
+    ;;
+html)
+    echo "starting http server..."
+    echo ""
+    http-server --port 8000
     ;;
 *)
     echo "Unsupported file type: .$EXT"

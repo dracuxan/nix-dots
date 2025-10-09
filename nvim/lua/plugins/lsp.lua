@@ -268,6 +268,18 @@ return {
 			},
 		}
 
+		ts_ls = {
+			capabilities = capabilities,
+			settings = {
+				typescript = {
+					inlayHints = {
+						includeInlayParameterNameHints = "all",
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+			},
+		}
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
 		--  other tools, you can run

@@ -1,3 +1,16 @@
+local vim = vim
+local height = math.floor(vim.o.lines * 0.45) -- ~30% height
+local row = vim.o.lines - height - 2 -- near bottom
+
+local common_winopts = {
+	preview = { hidden = true },
+	height = height,
+	width = 70,
+	row = row,
+	col = 0,
+	border = "rounded",
+}
+
 return {
 	"ibhagwan/fzf-lua",
 	-- optional for icon support
@@ -9,7 +22,9 @@ return {
 		{
 			"<leader><leader>",
 			function()
-				require("fzf-lua").files()
+				require("fzf-lua").files({
+					winopts = common_winopts,
+				})
 			end,
 			desc = "Find Files in project directory",
 		},
@@ -86,7 +101,9 @@ return {
 		{
 			"<C-b>",
 			function()
-				require("fzf-lua").buffers()
+				require("fzf-lua").buffers({
+					winopts = common_winopts,
+				})
 			end,
 			desc = "[,] Find existing buffers",
 		},

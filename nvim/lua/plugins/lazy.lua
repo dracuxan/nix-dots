@@ -84,9 +84,21 @@ local custom_plugins = {
 	{
 		"rmagatti/auto-session",
 		config = function()
-			require("auto-session").setup({
-				log_level = "error",
+			local height = math.floor(vim.o.lines * 0.45)
+			local row = vim.o.lines - height - 2
 
+			require("auto-session").setup({
+				session_lens = {
+					picker = "fzf",
+					picker_opts = {
+						height = height,
+						width = 70,
+						row = row,
+						col = 0, -- left edge
+						border = "rounded",
+					},
+				},
+				log_level = "error",
 				auto_session_suppress_dirs = { "~/", "~/Downloads" },
 			})
 		end,

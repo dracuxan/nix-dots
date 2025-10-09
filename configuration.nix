@@ -150,7 +150,6 @@
     sioyek
     libxcvt
     cmus
-    elmPackages.elm
     cava
     metasploit
     gn

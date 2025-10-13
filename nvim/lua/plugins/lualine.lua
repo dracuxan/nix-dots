@@ -6,7 +6,7 @@ local lualine = require("lualine")
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-	bg       = '#1F1F28',
+	bg       = 'none',
 	fg       = '#DCD7BA',
 	yellow   = '#E6C384',
 	cyan     = '#7AA89F',
@@ -169,7 +169,7 @@ ins_right({
 
 		local excluded_clients = {
 			["GitHub Copilot"] = true,
-			["null-ls"] = true,
+			-- ["null-ls"] = true,
 		}
 
 		local client_names = {}

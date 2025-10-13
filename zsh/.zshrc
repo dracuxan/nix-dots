@@ -80,7 +80,7 @@ alias alacritty_conf='nv /home/dracuxan/.config/alacritty/alacritty.toml'
 
 # nix aliases
 alias nd='nix develop'
-alias xw='xwallpaper --center ~/Wallpapers/sushi.jpg'
+alias xw='xwallpaper --stretch ~/Wallpapers/gruv-buildings.png; x'
 alias nixbuild='cd $HOME/nix-dots/; sudo make'
 alias nixupd='cd $HOME/nix-dots/; sudo make update'
 alias nixclean='cd $HOME/nix-dots/; sudo make clean'

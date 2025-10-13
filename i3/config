@@ -177,7 +177,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         colors {
-                background #222222
+                background #181818
                 statusline #eeeeee
                 separator  #666666
 
@@ -216,8 +216,8 @@ focus_follows_mouse no
 mouse_warping none
 
 # No title bars, but keep thin highlight border
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 1
+default_floating_border pixel 1
 
 # Force all new windows into tabbed layout
 workspace_layout tabbed

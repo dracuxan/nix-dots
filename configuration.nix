@@ -15,8 +15,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  services.logind.lidSwitch = "ignore";
-  
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
+
   # graphics support
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -156,11 +156,15 @@
     ninja
   ];
 
-  fonts.packages = [
-           pkgs.nerd-fonts._0xproto
-           pkgs.nerd-fonts.droid-sans-mono
-           pkgs.nerd-fonts.fira-code
-         ];
+   fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    symbola
+    nerd-fonts._0xproto
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.fira-code
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

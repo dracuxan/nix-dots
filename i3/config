@@ -198,7 +198,7 @@ bindsym $mod+p exec sioyek
 # Startup commands
 exec --no-startup-id  xrandr --output HDMI-1-0 --auto --right-of eDP
 
-exec --no-startup-id  xwallpaper --center ~/Wallpapers/sushi.jpg
+exec --no-startup-id  xwallpaper --center ~/Wallpapers/gruv-buildings.png
 
 # keybind for OBS
 bindsym $mod+o exec obs

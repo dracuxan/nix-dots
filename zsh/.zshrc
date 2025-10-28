@@ -62,6 +62,7 @@ export PATH="$HOME/.local/bin:$PATH"
 alias tm='start_tmux.sh'
 alias tm='start_tmux.sh'
 alias run='run.sh'
+alias gen_clangd='gen_clangd.sh'
 alias igris='ssh igris@192.168.0.198'
 
 # Git aliases

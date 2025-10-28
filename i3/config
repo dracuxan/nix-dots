@@ -196,7 +196,7 @@ bar {
 bindsym $mod+p exec sioyek
 
 # Startup commands
-exec --no-startup-id  xrandr --output HDMI-1-0 --auto --left-of eDP
+exec --no-startup-id  xrandr --output HDMI-1-0 --auto --right-of eDP
 
 exec --no-startup-id  xwallpaper --center ~/Wallpapers/sushi.jpg
 

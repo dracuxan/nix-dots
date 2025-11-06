@@ -81,11 +81,11 @@ alias alacritty_conf='nv /home/dracuxan/.config/alacritty/alacritty.toml'
 
 # nix aliases
 alias nd='nix develop'
-alias xw='xwallpaper --stretch ~/Wallpapers/gruv-buildings.png; x'
-alias nixbuild='cd $HOME/nix-dots/; sudo make'
-alias nixupd='cd $HOME/nix-dots/; sudo make update'
-alias nixclean='cd $HOME/nix-dots/; sudo make clean'
-alias nixconf='cd $HOME/nix-dots/; nv'
+alias xw='xwallpaper --stretch ~/Wallpapers/sushi.jpg; x'
+alias nibuild='cd $HOME/nix-dots/; sudo make'
+alias niupd='cd $HOME/nix-dots/; sudo make update'
+alias niclean='cd $HOME/nix-dots/; sudo make clean'
+alias niconf='cd $HOME/nix-dots/; nv'
 
 # Go paths
 export PATH=$HOME/go/bin:$PATH

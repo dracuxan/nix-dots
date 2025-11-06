@@ -33,6 +33,8 @@
     glibc.dev
     http-server
     obs-studio
+    uv
+    acpi
     inputs.zen-browser.packages.${system}.default
   ];
 

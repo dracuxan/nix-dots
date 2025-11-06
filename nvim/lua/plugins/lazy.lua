@@ -16,6 +16,7 @@ local custom_plugins = {
 	require("plugins.oil"),
 	require("plugins.lsp"),
 	require("plugins.langages"),
+	require("plugins.textobjects"),
 
 	{
 		"folke/noice.nvim",

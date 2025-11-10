@@ -35,6 +35,7 @@
     obs-studio
     uv
     acpi
+    obsidian
     inputs.zen-browser.packages.${system}.default
   ];
 

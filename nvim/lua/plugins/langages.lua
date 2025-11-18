@@ -1,5 +1,12 @@
 return {
 	{
+		"tarides/ocaml.nvim",
+		config = function()
+			require("ocaml").setup()
+		end,
+	},
+
+	{
 		"windwp/nvim-ts-autotag",
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		config = function()

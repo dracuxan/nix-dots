@@ -36,6 +36,7 @@
     uv
     acpi
     obsidian
+    xclip
     inputs.zen-browser.packages.${system}.default
   ];
 

@@ -14,6 +14,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
+  virtualisation.docker.enable = true;
 
   services.logind.settings.Login.HandleLidSwitch = "ignore";
 
@@ -79,7 +80,7 @@
   services.xserver = {
     enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --stretch ~/Wallpapers/gruv-buildings.png
+      xwallpaper --stretch ~/Wallpapers/sushi.jpg
       xset r rate 200 30 &
     '';
   };
@@ -98,7 +99,7 @@
 
   users.users.dracuxan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -125,6 +126,7 @@
     rocmPackages.clang
     gcc
     go
+    opam
     gopls
     rustup
     zig

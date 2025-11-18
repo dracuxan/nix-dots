@@ -67,7 +67,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+b exec zen
-bindsym $mod+x exec zen https://x.com
+bindsym $mod+x exec zen https://x.com/dracuxan
 
 # change focus
 bindsym $mod+j focus left

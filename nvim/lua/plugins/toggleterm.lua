@@ -1,5 +1,6 @@
 local vim = vim
 local autoRun = "horizontal"
+local default = "vertical"
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
 	return
@@ -21,7 +22,7 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-	direction = "vertical",
+	direction = default,
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
@@ -132,9 +133,9 @@ function _LAZYGIT_TOGGLE()
 end
 
 -- Set keymaps
-vim.keymap.set("n", "<M-m>s", _RUN_SCRIPT, { noremap = true, silent = true, desc = "run code" })
+vim.keymap.set("n", "<M-m>r", _RUN_SCRIPT, { noremap = true, silent = true, desc = "run code" })
 vim.keymap.set("n", "<M-m>m", _MAKE, { noremap = true, silent = true, desc = "make" })
-vim.keymap.set("n", "<M-m>r", _MAKE_RUN, { noremap = true, silent = true, desc = "make run" })
+vim.keymap.set("n", "<M-m>R", _MAKE_RUN, { noremap = true, silent = true, desc = "make run" })
 vim.keymap.set("n", "<M-m>t", _MAKE_TEST, { noremap = true, silent = true, desc = "make test" })
 vim.keymap.set("n", "<M-m>b", _MAKE_BUILD, { noremap = true, silent = true, desc = "make build" })
 vim.keymap.set("n", "<M-m>B", _MAKE_BENCH, { noremap = true, silent = true, desc = "make bench" })

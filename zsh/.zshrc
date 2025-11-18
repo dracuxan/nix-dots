@@ -87,6 +87,10 @@ alias niupd='cd $HOME/nix-dots/; sudo make update'
 alias niclean='cd $HOME/nix-dots/; sudo make clean'
 alias niconf='cd $HOME/nix-dots/; nv'
 
+# clipboard
+alias cv='xclip -sel clip'
+alias pp='xclip -o'
+
 # Go paths
 export PATH=$HOME/go/bin:$PATH
 
@@ -97,3 +101,12 @@ eval "$(starship init zsh)"
 if [[ -n "$IN_NIX_SHELL" ]]; then
     PROMPT="(nix-shell) $PROMPT"
 fi
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/home/dracuxan/.opam/opam-init/init.zsh' ]] || source '/home/dracuxan/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration

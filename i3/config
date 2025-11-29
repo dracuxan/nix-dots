@@ -206,8 +206,6 @@ bindsym $mod+p exec sioyek
 # Startup commands
 exec --no-startup-id  xrandr --output HDMI-1-0 --auto --left-of eDP
 
-exec --no-startup-id  xwallpaper --center ~/Wallpapers/sushi.jpg
-
 # keybind for OBS
 bindsym $mod+o exec obs
 
@@ -252,7 +250,13 @@ bindsym $mod+m bar mode invisible
 bindsym $mod+Shift+m bar mode dock
 
 # Set space between windows and screen edges
-gaps outer 30
+gaps outer 0
 
 # Set space between windows
 gaps inner 0
+
+# Increase inner gaps
+bindsym $mod+g gaps inner current plus 5
+
+# Decrease inner gaps
+bindsym $mod+Shift+g gaps inner current minus 5

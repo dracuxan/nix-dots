@@ -141,7 +141,6 @@ return {
 			zls = {},
 			ts_ls = {},
 			eslint = {},
-			ocamllsp = {},
 		}
 
 		require("mason").setup()

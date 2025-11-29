@@ -37,6 +37,7 @@
     acpi
     obsidian
     xclip
+    vlc
     inputs.zen-browser.packages.${system}.default
   ];
 

@@ -8,7 +8,6 @@ local sources = {
 	formatting.terraform_fmt,
 	formatting.gofumpt,
 	formatting.clang_format,
-	formatting.ocamlformat,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -26,7 +26,7 @@ vk({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- save file
 vk("n", "<C-s>", "<cmd> w <CR>", opts)
 vk("i", "<C-s>", "<Esc><cmd> w <CR>", opts)
-vk("n", "<C-a>", "<cmd> AutoSession search <CR>", opts)
+vk("n", "<M-a>", "<cmd> AutoSession search <CR>", opts)
 
 -- delete single character without copying into register
 vk("n", "x", '"_x', opts)

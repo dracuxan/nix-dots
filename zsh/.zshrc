@@ -27,6 +27,8 @@ bindkey -s '^T' 'tm\n'
 # Ctrl + T to execute tmux
 bindkey -s '^F' 'fzf\n'
 
+bindkey '^R' history-incremental-search-backward
+
 #Disabeling arrow keys
 bindkey -r "^[[A"  # Remove Up Arrow
 bindkey -r "^[[B"  # Remove Down Arrow
@@ -81,11 +83,12 @@ alias alacritty_conf='nv /home/dracuxan/.config/alacritty/alacritty.toml'
 
 # nix aliases
 alias nd='nix develop'
-alias xw='xwallpaper --stretch ~/Wallpapers/sushi.jpg; x'
+alias xw='xwallpaper --stretch ~/Wallpapers/gruvbox_spac.jpg; x'
 alias nibuild='cd $HOME/nix-dots/; sudo make'
 alias niupd='cd $HOME/nix-dots/; sudo make update'
 alias niclean='cd $HOME/nix-dots/; sudo make clean'
 alias niconf='cd $HOME/nix-dots/; nv'
+alias goutils='cd $HOME/go/src/goutils/'
 
 # clipboard
 alias cv='xclip -sel clip'
@@ -108,5 +111,5 @@ fi
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-[[ ! -r '/home/dracuxan/.opam/opam-init/init.zsh' ]] || source '/home/dracuxan/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# [[ ! -r '/home/dracuxan/.opam/opam-init/init.zsh' ]] || source '/home/dracuxan/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration

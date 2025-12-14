@@ -3,9 +3,20 @@ FILE_PATH=$1
 shift     # Remove the file path from the list of arguments
 ARGS="$@" # Capture any additional arguments
 
+RUN_AFTER_BUILD=true
+
+for arg in "$@"; do
+    case $arg in
+    --build-only)
+        RUN_AFTER_BUILD=false
+        shift
+        ;;
+    esac
+done
+
 # Ensure a file path is provided
 if [[ -z "$FILE_PATH" ]]; then
-    echo "Usage: $0 <source_file> [program arguments if any]"
+    echo "Usage: $0 <source_file> [program arguments if any] [--build-only(optional)]"
     exit 1
 fi
 
@@ -42,8 +53,12 @@ go)
         echo "Compilation failed."
         exit 1
     fi
-    echo "Running bin/${FILE_NAME}..."
-    ./bin/${FILE_NAME} $ARGS
+    if $RUN_AFTER_BUILD; then
+        echo "Running bin/${FILE_NAME}..."
+        ./bin/${FILE_NAME} $ARGS
+    else
+        echo "Binary compiled at bin/${FILE_NAME}"
+    fi
     ;;
 rs)
     echo "Running ${FILE_NAME}.rs with rustc..."
@@ -56,6 +71,16 @@ elm)
     echo "Running elm project..."
     echo ""
     elm reactor
+    ;;
+exs)
+    echo "Running ${FILE_NAME}.exs with Elixir..."
+    echo ""
+    elixir "$FILE_PATH" $ARGS
+    ;;
+sh)
+    echo "Running ${FILE_NAME}.sh script...."
+    echo ""
+    bash $FILE_PATH
     ;;
 html)
     echo "starting http server..."

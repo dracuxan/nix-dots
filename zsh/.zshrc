@@ -1,5 +1,7 @@
 # Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 autoload -Uz +X compinit && compinit
 
 ## case insensitive path-completion
@@ -88,7 +90,7 @@ alias nibuild='cd $HOME/nix-dots/; sudo make'
 alias niupd='cd $HOME/nix-dots/; sudo make update'
 alias niclean='cd $HOME/nix-dots/; sudo make clean'
 alias niconf='cd $HOME/nix-dots/; nv'
-alias goutils='cd $HOME/go/src/goutils/'
+alias cd='z'
 
 # clipboard
 alias cv='xclip -sel clip'
@@ -97,19 +99,21 @@ alias pp='xclip -o'
 # Go paths
 export PATH=$HOME/go/bin:$PATH
 
+# Run script
+export RUN_BIN="true"
+
+# ssh login
+export SERVER_IP="192.168.0.198"
+alias igris='ssh -i /home/dracuxan/.ssh/new_key igris@$SERVER_IP'
+alias sendbin='run main.go --build-only && scp ./bin/main igris@$SERVER_IP:/home/igris/exps/'
+
+
 # Startup Commands
 neo
-eval "$(starship init zsh)"
 
 if [[ -n "$IN_NIX_SHELL" ]]; then
     PROMPT="(nix-shell) $PROMPT"
 fi
 
-
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-# [[ ! -r '/home/dracuxan/.opam/opam-init/init.zsh' ]] || source '/home/dracuxan/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
+# opencode
+export PATH=/home/dracuxan/.opencode/bin:$PATH

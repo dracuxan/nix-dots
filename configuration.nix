@@ -97,6 +97,8 @@
     '';
   };
 
+  programs.niri.enable = true;
+
   users.users.dracuxan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
@@ -156,6 +158,15 @@
     metasploit
     gn
     ninja
+    bun
+    quickshell
+    niri
+    zoxide
+    unixtools.arp
+    elixir
+    erlang
+    elixir-ls
+    inotify-tools
   ];
 
    fonts.packages = with pkgs; [

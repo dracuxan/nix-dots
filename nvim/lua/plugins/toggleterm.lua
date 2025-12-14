@@ -2,6 +2,7 @@ local vim = vim
 local autoRun = "horizontal"
 local default = "vertical"
 local status_ok, toggleterm = pcall(require, "toggleterm")
+local sendToServer = "run.sh main.go --build-only && scp ./bin/main igris@192.168.0.198:/home/igris/exps"
 if not status_ok then
 	return
 end
@@ -60,17 +61,6 @@ function _RUN_SCRIPT()
 	script_term:toggle()
 end
 
-function _MAKE_RUN()
-	local make = Terminal:new({
-		cmd = "make run",
-		hidden = false,
-		direction = autoRun,
-		persist_size = true,
-		close_on_exit = false,
-	})
-	make:toggle()
-end
-
 function _MAKE()
 	local make = Terminal:new({
 		cmd = "make",
@@ -93,9 +83,11 @@ function _MAKE_TEST()
 	make:toggle()
 end
 
-function _MAKE_BENCH()
+function _BUILD()
+	local buffname = vim.api.nvim_buf_get_name(0)
+	local filepath = vim.fn.fnamemodify(buffname, ":p")
 	local make = Terminal:new({
-		cmd = "make bench",
+		cmd = "run.sh" .. filepath .. " --build-only",
 		hidden = true,
 		direction = autoRun,
 		persist_size = true,
@@ -104,20 +96,9 @@ function _MAKE_BENCH()
 	make:toggle()
 end
 
-function _MAKE_BUILD()
+function _SEND_BIN()
 	local make = Terminal:new({
-		cmd = "make build",
-		hidden = true,
-		direction = autoRun,
-		persist_size = true,
-		close_on_exit = false,
-	})
-	make:toggle()
-end
-
-function _MAKE_CLEAN()
-	local make = Terminal:new({
-		cmd = "make clean",
+		cmd = sendToServer,
 		hidden = true,
 		direction = autoRun,
 		persist_size = true,
@@ -135,9 +116,7 @@ end
 -- Set keymaps
 vim.keymap.set("n", "<M-m>r", _RUN_SCRIPT, { noremap = true, silent = true, desc = "run code" })
 vim.keymap.set("n", "<M-m>m", _MAKE, { noremap = true, silent = true, desc = "make" })
-vim.keymap.set("n", "<M-m>R", _MAKE_RUN, { noremap = true, silent = true, desc = "make run" })
 vim.keymap.set("n", "<M-m>t", _MAKE_TEST, { noremap = true, silent = true, desc = "make test" })
-vim.keymap.set("n", "<M-m>b", _MAKE_BUILD, { noremap = true, silent = true, desc = "make build" })
-vim.keymap.set("n", "<M-m>B", _MAKE_BENCH, { noremap = true, silent = true, desc = "make bench" })
-vim.keymap.set("n", "<M-m>c", _MAKE_CLEAN, { noremap = true, silent = true, desc = "make clean" })
+vim.keymap.set("n", "<M-m>b", _BUILD, { noremap = true, silent = true, desc = "build binary" })
+vim.keymap.set("n", "<M-m>s", _SEND_BIN, { noremap = true, silent = true, desc = "send binaries to server" })
 vim.keymap.set("n", "<M-m>l", _LAZYGIT_TOGGLE, { noremap = true, silent = true, desc = "lazygit" })

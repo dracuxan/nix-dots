@@ -141,6 +141,15 @@ return {
 			zls = {},
 			ts_ls = {},
 			eslint = {},
+			elixirls = {
+				cmd = { "elixir-ls" },
+				settings = {
+					elixirLS = {
+						dialyzerEnabled = false,
+						fetchDeps = false,
+					},
+				},
+			},
 		}
 
 		require("mason").setup()

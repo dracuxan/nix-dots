@@ -7,7 +7,11 @@ require("vesper").setup({
 		strings = true, -- Boolean: Italicizes strings
 		variables = true, -- Boolean: Italicizes variables
 	},
-	overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+	overrides = {
+			OilNormal = { bg = "NONE" },
+			OilFloat = { bg = "NONE" },
+			FloatBorder = { bg = "NONE", fg = "#5e81ac" },
+		}, -- A dictionary of group names, can be a function returning a dictionary or a table.
 	palette_overrides = {},
 })
 

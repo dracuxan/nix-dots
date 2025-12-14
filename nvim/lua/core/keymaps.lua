@@ -92,6 +92,10 @@ vk("n", "qq", "<cmd> q <CR>", opts)
 -- Find todos using fzf
 vk("n", "<leader>ft", "<cmd> TodoFzfLua <CR>", { desc = "[F]ind [T]odos using fzf", noremap = true, silent = true })
 
+-- Manual file reload control
+vk("n", "<leader>fr", ":checktime<CR>", { desc = "Check external file changes" })
+vk("n", "<leader>fr!", ":edit!<CR>", { desc = "Force reload file" })
+
 -- For terminal navigation
 vk("t", "<C-h>", [[<C-\><C-N><C-w>h]])
 vk("t", "<C-j>", [[<C-\><C-N><C-w>j]])

@@ -27,6 +27,18 @@ return {
 						return vim.tbl_contains(folder_skip, name)
 					end,
 				},
+				float = {
+					padding = 2,
+					max_width = 0.8,
+					max_height = 0.8,
+					border = "rounded",
+					win_options = {
+						winblend = 0,
+					},
+				},
+				confirmation = {
+					border = "rounded",
+				},
 			})
 
 			vim.keymap.set("n", "<space>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

@@ -43,6 +43,7 @@ vim.opt.shortmess:append("c") -- Don't give |ins-completion-menu| messages (defa
 vim.opt.iskeyword:append("-") -- Hyphenated words recognized by searches (default: does not include '-')
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.fillchars = { eob = " " }
+vim.o.updatetime = 1000 -- 1 second for faster external change detection
 
 -- Treesitter folding
 vim.wo.foldmethod = "expr"
@@ -96,7 +97,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		set_hl(0, "TabLineSel", { bg = "none", bold = true })
 		set_hl(0, "TabLineFill", { bg = "none" })
 		set_hl(0, "NormalFloat", { bg = "none" })
-		set_hl(0, "FloatBorder", { bg = "none" })
+		set_hl(0, "FloatBorder", { bg = "none", fg = "none" })
 		set_hl(0, "OilNormal", { bg = "none" })
 		set_hl(0, "OilFloat", { bg = "none" })
 		-- set_hl(0, "ColorColumn", { bg = "white" })

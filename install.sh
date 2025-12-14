@@ -37,6 +37,14 @@ stow --adopt -d "$DOTFILES_DIR" -t "$HOME" zsh
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME" tmux
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.local/bin" scripts
 
+echo "[+] Checking wallpaper config..."
+if [[ ! -f "$HOME/.config/wallpaper.conf" ]]; then
+    mkdir -p "$HOME/.config"
+    echo "# Wallpaper Configuration" > "$HOME/.config/wallpaper.conf"
+    echo "WALLPAPER_PATH=~/Wallpapers/gruvbox_spac.jpg" >> "$HOME/.config/wallpaper.conf"
+    echo "Created default wallpaper configuration"
+fi
+
 echo "-----------------------------------------"
 echo "       Setup Complete — Reboot Now       "
 echo "-----------------------------------------"

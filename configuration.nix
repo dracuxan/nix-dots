@@ -80,7 +80,7 @@
   services.xserver = {
     enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --stretch ~/Wallpapers/gruvbox_spac.jpg
+      set_wallpaper.sh
       xset r rate 200 30 &
     '';
   };

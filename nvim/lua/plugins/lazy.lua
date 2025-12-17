@@ -156,10 +156,10 @@ local custom_plugins = {
 		end,
 	},
 
-	{
-		"github/copilot.vim",
-		-- lazy = true,
-	},
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	-- lazy = true,
+	-- },
 }
 
 require("lazy").setup(custom_plugins)

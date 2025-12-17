@@ -88,12 +88,26 @@
   services.picom = {
     enable = true;
     backend = "glx";
+
+    activeOpacity = 0.9;
+    inactiveOpacity = 0.9;
+
+    settings = {
+      blur-method = "dual_kawase";
+      blur-strength = 8;
+
+      blur-background-exclude = [
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+        "class_g = 'i3bar'"
+      ];
+    };
   };
 
   services.xserver.windowManager.i3 = {
     enable = true;
     extraSessionCommands = ''
-      picom --experimental-backends --config /home/dracuxan/.config/picom/picom.conf &
+      picom &
     '';
   };
 
@@ -167,6 +181,7 @@
     erlang
     elixir-ls
     inotify-tools
+    ffmpeg
   ];
 
    fonts.packages = with pkgs; [

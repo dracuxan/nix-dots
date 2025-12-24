@@ -67,7 +67,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+b exec --no-startup-id zen
-bindsym $mod+x exec --no-startup-id zen https://x.com
+bindsym $mod+x exec --no-startup-id zen https://x.com/dracuxan
 
 # change focus
 bindsym $mod+j focus left
@@ -204,7 +204,8 @@ bar {
 bindsym $mod+p exec sioyek
 
 # Startup commands
-exec --no-startup-id  xrandr --output HDMI-1-0 --auto --left-of eDP
+exec --no-startup-id sleep 3 && /home/dracuxan/.local/bin/setup_monitors.sh; /home/dracuxan/.local/bin/set_wallpaper.sh
+exec_always --no-startup-id picom --config /home/dracuxan/nix-dots/picom/picom.conf -b
 
 # keybind for OBS
 bindsym $mod+o exec obs
@@ -236,6 +237,7 @@ bindsym $mod+Shift+s exec flameshot gui
 
 # switch to last used workspace
 bindsym $mod+Tab workspace back_and_forth
+# bindsym $mod+Tab focus left
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -260,3 +262,7 @@ bindsym $mod+g gaps inner current plus 50
 
 # Decrease inner gaps
 bindsym $mod+Shift+g gaps inner current minus 50
+
+# Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-

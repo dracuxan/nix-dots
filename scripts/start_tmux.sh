@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# Parse command line arguments
+force_new=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -n|--new)
+            force_new=true
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            echo "Usage: $0 [-n|--new]" >&2
+            exit 1
+            ;;
+    esac
+done
+
 logs() {
     local action=$1
     local session_name=$2
@@ -31,9 +48,17 @@ tm() {
     fi
 
     # Check for existing sessions
-    if [ -z "$(tmux ls 2>/dev/null)" ]; then
+    local existing_sessions
+    existing_sessions=$(tmux ls 2>/dev/null)
+
+    # Decide whether to create new session or attach to existing
+    if [ "$force_new" = true ] || [ -z "$existing_sessions" ]; then
         # Prompt for session name
-        echo -n "No sessions found. Enter a name for a new session: "
+        if [ "$force_new" = true ] && [ -n "$existing_sessions" ]; then
+            echo -n "Enter a name for a new session: "
+        else
+            echo -n "No sessions found. Enter a name for a new session: "
+        fi
         read -r name
         # Validate input
         if [ -z "$name" ]; then

@@ -85,37 +85,15 @@
     '';
   };
 
-  services.picom = {
-    enable = true;
-    backend = "glx";
-
-    activeOpacity = 0.9;
-    inactiveOpacity = 0.9;
-
-    settings = {
-      blur-method = "dual_kawase";
-      blur-strength = 8;
-
-      blur-background-exclude = [
-        "window_type = 'dock'"
-        "window_type = 'desktop'"
-        "class_g = 'i3bar'"
-      ];
-    };
-  };
-
   services.xserver.windowManager.i3 = {
     enable = true;
-    extraSessionCommands = ''
-      picom &
-    '';
   };
 
   programs.niri.enable = true;
 
   users.users.dracuxan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "video"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -154,7 +132,6 @@
     unzip
     gh
     gnumake
-    pcmanfm
     stow	
     lazygit
     bat
@@ -181,7 +158,15 @@
     erlang
     elixir-ls
     inotify-tools
+    lsof
     ffmpeg
+    gvfs
+    jmtpfs
+    kdePackages.dolphin
+    wmctrl
+    xdotool
+    brightnessctl
+    picom
   ];
 
    fonts.packages = with pkgs; [

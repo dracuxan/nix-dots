@@ -75,13 +75,12 @@ make install  # Stow configuration files
 
 - **run.sh** - Universal run script supporting C, Python, Go, Rust, Elixir, HTML, Shell scripts
 
-> [!NOTE]
-> supports `build-only` flag only for Go
+  > supports `build-only` flag only for Go
 
-```bash
-run.sh main.go --build-only  # Build Go without running
-run.sh <file>                # Auto-detect and run for other languages
-```
+  ```bash
+  run.sh main.go --build-only  # Build Go without running
+  run.sh <file>                # Auto-detect and run for other languages
+  ```
 
 - **gen_clangd.sh** - Generate LSP configuration for C/C++ in Nix environments
   ```bash

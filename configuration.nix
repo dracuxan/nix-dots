@@ -167,6 +167,7 @@
     xdotool
     brightnessctl
     picom
+    inetutils
   ];
 
    fonts.packages = with pkgs; [

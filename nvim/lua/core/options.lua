@@ -3,7 +3,7 @@ local vim = vim
 vim.wo.number = true -- Make line numbers default (default: false)
 vim.o.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim. (default: '')
 vim.o.relativenumber = true -- Set relative numbered lines (default: false)
-vim.o.wrap = true -- Display lines as one long line (default: true)
+vim.o.wrap = false -- Display lines as one long line (default: true)
 vim.o.linebreak = true -- Companion to wrap, don't split words (default: false)
 vim.o.mouse = "" -- Enable mouse mode (default: '')
 vim.o.autoindent = true -- Copy indent from current line when starting new one (default: true)
@@ -76,20 +76,6 @@ end
 vim.o.showtabline = 2
 vim.o.tabline = "%!v:lua.MyTabLine()"
 
--- -- Set colorcolumn to 60% of current window width and update on resize
--- local function set_colorcolumn_pct(pct)
--- 	local w = vim.api.nvim_win_get_width(0)
--- 	local col = math.max(1, math.floor(w * pct / 100))
--- 	vim.wo.colorcolumn = tostring(col)
--- end
---
--- -- set on BufEnter and WinResized
--- vim.api.nvim_create_autocmd({ "BufEnter", "WinResized" }, {
--- 	callback = function()
--- 		set_colorcolumn_pct(60)
--- 	end,
--- })
-
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
 		local set_hl = vim.api.nvim_set_hl
@@ -100,6 +86,5 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		set_hl(0, "FloatBorder", { bg = "none", fg = "none" })
 		set_hl(0, "OilNormal", { bg = "none" })
 		set_hl(0, "OilFloat", { bg = "none" })
-		-- set_hl(0, "ColorColumn", { bg = "white" })
 	end,
 })

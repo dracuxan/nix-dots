@@ -23,6 +23,16 @@ local custom_plugins = {
 		config = function()
 			require("noice").setup({
 				-- add any options here
+				lsp = {
+					documentation = {
+						opts = {
+							size = {
+								max_width = 80,
+								max_height = 20,
+							},
+						},
+					},
+				},
 				routes = {
 					{
 						filter = {

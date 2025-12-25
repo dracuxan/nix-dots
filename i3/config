@@ -236,8 +236,8 @@ workspace_layout tabbed
 bindsym $mod+Shift+s exec flameshot gui
 
 # switch to last used workspace
-bindsym $mod+Tab workspace back_and_forth
-# bindsym $mod+Tab focus left
+# bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab focus left
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle

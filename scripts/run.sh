@@ -34,6 +34,20 @@ EXT="${FILE_PATH##*.}"
 FILE_NAME=$(basename "$FILE_PATH" ."$EXT")
 
 case "$EXT" in
+c)
+    echo "Compiling ${FILE_NAME}.c..."
+    echo ""
+    # Ensure 'bin' directory exists for compiled binaries
+    mkdir -p "bin"
+    gcc -Wall -Wextra -lm "$FILE_PATH" -o "bin/${FILE_NAME}"
+    if [[ $? -ne 0 ]]; then
+        echo "Compilation failed."
+        exit 1
+    fi
+    echo "Running bin/${FILE_NAME}..."
+    echo ""
+    ./bin/${FILE_NAME} $ARGS
+    ;;
 go)
     if $TEST_PROJECT; then
         echo "Running tests..."
@@ -68,9 +82,15 @@ exs | ex)
     if $TEST_PROJECT; then
         mix test
     elif $REPL; then
-        echo "Running app with iex..."
-        echo ""
-        iex -S mix
+        if [[ "$EXT" == "exs" ]] && [[ "$FILE_NAME" != "mix" ]]; then
+            echo "Running app with iex..."
+            echo ""
+            iex
+        else
+            echo "Running app with iex..."
+            echo ""
+            iex -S mix
+        fi
     else
         if [[ "$EXT" == "exs" ]] && [[ "$FILE_NAME" != "mix" ]]; then
             echo "Running ${FILE_NAME}.exs with Elixir..."

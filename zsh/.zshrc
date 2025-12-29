@@ -8,27 +8,6 @@ autoload -Uz +X compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
 
-# Enable keybindings in Zsh
-bindkey -v  # Use Vim keybindings in Zsh
-
-# ALT + H (Move Left)
-bindkey '^[h' backward-char
-
-# ALT + L (Move Right)
-bindkey '^[l' forward-char
-
-# ALT + J (Move Down in history)
-bindkey '^[j' down-line-or-history
-
-# ALT + K (Move Up in history)
-bindkey '^[k' up-line-or-history
-
-# Ctrl + T to execute tmux
-bindkey -s '^T' 'tm\n'
-
-# Ctrl + T to execute tmux
-bindkey -s '^F' 'fzf\n'
-
 bindkey '^R' history-incremental-search-backward
 
 #Disabeling arrow keys

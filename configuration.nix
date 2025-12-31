@@ -83,11 +83,21 @@
       set_wallpaper.sh
       xset r rate 200 30 &
     '';
+
+    windowManager.i3.enable = true;
   };
 
-  services.xserver.windowManager.i3 = {
-    enable = true;
+  services.libinput = {
+  enable = true;
+  touchpad = {
+    naturalScrolling = true;
+    disableWhileTyping = true;
+    scrollMethod = "twofinger";
+    tapping = true;
+    clickMethod = "clickfinger";
+    };
   };
+
 
   programs.niri.enable = true;
 

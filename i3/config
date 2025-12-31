@@ -67,6 +67,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -m 1
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+b exec --no-startup-id zen
+bindsym $mod+x exec --no-startup-id zen https://x.com/dracuxan
 
 # change focus
 bindsym $mod+j focus left
@@ -248,9 +249,7 @@ bindsym $mod+n workspace next
 # bindsym $mod+Shift+n workspace previous
 
 # hide bar
-bindsym $mod+m bar mode invisible
-# show bar
-bindsym $mod+Shift+m bar mode dock
+bindsym $mod+m bar mode toggle
 
 # Set space between windows and screen edges
 gaps outer 0

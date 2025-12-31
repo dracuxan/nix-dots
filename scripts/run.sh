@@ -9,15 +9,15 @@ REPL=false
 
 for arg in "$@"; do
     case $arg in
-    --build)
+    --build | -b)
         BUILD_ONLY=true
         shift
         ;;
-    --test)
+    --test | -t)
         TEST_PROJECT=true
         shift
         ;;
-    --repl)
+    --repl | -r)
         REPL=true
         shift
         ;;

@@ -103,7 +103,7 @@
 
   users.users.dracuxan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "video"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "video" "input"]; # Enable 'sudo' for the user.
     packages = with pkgs; [
       tree
     ];
@@ -178,6 +178,8 @@
     brightnessctl
     picom
     inetutils
+    fusuma
+    gthumb
   ];
 
    fonts.packages = with pkgs; [

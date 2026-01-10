@@ -1,0 +1,6 @@
+swipe:
+  4:
+    right:
+      command: "i3-msg workspace prev"
+    left:
+      command: "i3-msg workspace next"

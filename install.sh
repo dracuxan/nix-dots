@@ -19,7 +19,7 @@ echo "[+] Stowing dotfiles..."
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "[+] Preparing ~/.config layout..."
-for dir in alacritty fastfetch nvim i3 i3status picom; do
+for dir in alacritty fastfetch nvim i3 i3status picom fusuma; do
     mkdir -p "$HOME/.config/$dir"
 done
 
@@ -31,6 +31,7 @@ stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/nvim" nvim
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/i3" i3
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/i3status" i3status
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/picom" picom
+stow --adopt -d "$DOTFILES_DIR" -t "$HOME/.config/fusuma" fusuma
 
 echo "[+] Stowing legacy dotfiles into ~..."
 stow --adopt -d "$DOTFILES_DIR" -t "$HOME" zsh

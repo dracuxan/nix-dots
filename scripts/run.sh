@@ -6,6 +6,7 @@ ARGS="$@" # Capture any additional arguments
 BUILD_ONLY=false
 TEST_PROJECT=false
 REPL=false
+RED='\033[0;31m'
 
 for arg in "$@"; do
     case $arg in
@@ -80,7 +81,12 @@ rs)
     ;;
 exs | ex)
     if $TEST_PROJECT; then
-        mix test
+        if [[ "$EXT" == "exs" ]] && [[ "$FILE_NAME" == "mix" ]] || [[ "$EXT" == "ex" ]] || [[ "$FILE_NAME" == *"_test"* ]]; then
+            mix test
+        else
+            echo -e "${RED}[ERROR] cannot run test on non-mix projects dir"
+            exit -1
+        fi
     elif $REPL; then
         if [[ "$EXT" == "exs" ]] && [[ "$FILE_NAME" != "mix" ]]; then
             echo "Running app with iex..."
